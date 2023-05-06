@@ -10,5 +10,6 @@ export default function Registerpage() {
     <Registerform />
       <Footer/>
     </>
+    // test
   )
 }
