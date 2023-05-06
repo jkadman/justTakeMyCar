@@ -1,38 +1,202 @@
-.App {
+.fullPage{
+  height: 100%;
+  width: 100%;
+  background-color: #f2f2f2
+}
+.bgColor {
+  background-color: #f2f2f2;
+}
+
+
+.header{
+  height: 100px;
+  width: 100%;
+
+  display: flex;
+ justify-content: space-around;
+ flex-direction: row;
+ border: 1px solid #999;
+ border-radius: 10px;
+}
+
+.footer{
+  height: 100px;
+  width: 100%;
+  /* background-color: aqua; */
+  border: 1px solid #999;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 10px;
+}
+
+.reserve a {
+  text-decoration: none;
+  color: black;
+}
+
+.availableCars, .registeredCars {
+  height: 350px;
+  width: 80%;
+  margin: 0 auto; /* this will center the divs horizontally */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
+  padding: 10px;
+  gap: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.availableTitle, .totalTitle{
+ text-align: center;
+ color: #ff4411;
+ font-size: 30px;
+ font-family: 'Signika',
+ sans-serif; padding-bottom:
+ 10px;
+ font-weight: bold;
+}
+
+
+.headerSection{
+
+ height: 100px;
+ width: 300px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.buttons{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: auto;
+}
+
+.registerButton, .loginButton {
+  padding:0.7em 1.7em;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:400;
+  color:#000000; /* Set text color to black */
+  background-color: #ff4411; /* Set background color to #ff4411 */
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  text-align:center;
+  position:relative;
+  border-radius: 15%;
+}
+
+
+
+
+
+.carItem {
+  flex-basis: calc(25% - 10px);
+  background-color: #f0f0f0;
+  border: 1px solid #999;
+  /* text-align: center; */
+  height: 150px;
+  border-radius: 10px;
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.carImage {
+  height: 100px;
+  width: 100%;
+  border-radius: 1px;
+  border: 1px solid #000;
+}
+
+
+.carName{
+  text-decoration: underline;
+}
+
+.carArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: auto;
+  flex-basis: calc(25% - 10px);
+  background-color: #f0f0f0;
+  border: 1px solid #999;
+  width: 100%;
+}
+
+.seeMore{
+  text-decoration: none;
+
+}
+
+.footerSection {
+  margin: 10px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.socialMediaLinks {
+  list-style-type: none;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.socialMediaLinks li {
+  display: inline-block;
+  margin: 0 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.socialMediaLinks a {
+  text-decoration: none;
+  color: #000;
+}
+
+.footerSection a {
+  text-decoration: none;
+  color: #000;
+}
+
+.aboutUs{
+  margin-top: 26px;
   display: flex;
-  flex-direction: column;
+  flex-direction:column ;
+  /* justify-content: center; */
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.headerSection.registerLink a {
+  text-decoration: none;
+  font-weight: bold;
+  background-color: red;
+  border: 2px solid black;
+  color: black;
+  font-weight: bold;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title{
+  color: #ff4411;
+  font-size: 17px;
+  font-family: 'Signika',
+  sans-serif; padding-bottom:
+  10px;
+}
+
+.reportButton{
+margin: 10px;
 }
