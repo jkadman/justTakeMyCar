@@ -51,7 +51,7 @@ const carData = [
     image: car5,
     type: "jeep",
     make: "Jeep",
-    name: "Fishingpole",
+    name: "Rebis",
     year: "2014",
   },
   {
@@ -99,7 +99,7 @@ const carData = [
     image: car11,
     type: "sedan",
     make: "Subaru",
-    name: "Golf Ball",
+    name: "Quiz",
     year: "2016",
   },
   {
@@ -107,7 +107,7 @@ const carData = [
     image: car12,
     type: "truck",
     make: "Toyota",
-    name: "Lugger",
+    name: "Celsius",
     year: "2019",
   },
   {
@@ -115,7 +115,7 @@ const carData = [
     image: car13,
     type: "sedan",
     make: "Volksvagen",
-    name: "Gnat",
+    name: "Hobo",
     year: "2021",
   },
   {
