@@ -1,39 +1,17 @@
+import car1 from "./pictures/car1.png";
+import car2 from "./pictures/car2.png";
 const carData = [
   {
     carNumber: 1,
-    players: ["Disguised Lizard", "DrSpiteful"],
-    winner: "DrSpiteful",
-    scoreDifference: 1,
+    image: car1,
+    type: "sedan",
+    make: "toyota",
+    name: "corolla",
+    year: "2016",
   },
   {
-    matchNumber: 2,
-    players: ["Henrikarex", "Gamerhorse"],
-    winner: "Henrikarex",
-    scoreDifference: 2,
-  },
-  {
-    matchNumber: 3,
-    players: ["IHasEyes", "Captain Slimy"],
-    winner: "Captain Slimy",
-    scoreDifference: 1,
-  },
-  {
-    matchNumber: 4,
-    players: ["H3nr1k4", "DrSpiteful"],
-    winner: "H3nr1k4",
-    scoreDifference: 3,
-  },
-  {
-    matchNumber: 5,
-    players: ["Henrikarex", "Captain Slimy"],
-    winner: "Henrikarex",
-    scoreDifference: 1,
-  },
-  {
-    matchNumber: 6,
-    players: ["Henrikarex", "H3nr1k4"],
-    winner: undefined,
-    scoreDifference: undefined,
+    carNumber: 2,
+    image: car2,
   },
 ];
 
