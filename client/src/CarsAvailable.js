@@ -34,7 +34,9 @@ export default function CarsAvailable() {
         </div>
         <div className="carItem">
           <div className="carName"> Car 3</div>
-          <div className="carImage"> image</div>
+          <div className="carImage">
+            <img src={carData[2].image} alt="car3"></img>
+          </div>
           <div className="carArea">
             <div>area</div>
             <div className="reserve">
@@ -45,7 +47,9 @@ export default function CarsAvailable() {
         </div>
         <div className="carItem">
           <div className="carName"> Car 4</div>
-          <div className="carImage"> image</div>
+          <div className="carImage">
+            <img src={carData[3].image} alt="car4"></img>
+          </div>
           <div className="carArea">
             <div>area</div>
             <div className="reserve">
@@ -56,7 +60,9 @@ export default function CarsAvailable() {
         </div>
         <div className="carItem">
           <div className="carName"> Car 5</div>
-          <div className="carImage"> image</div>
+          <div className="carImage">
+            <img src={carData[4].image} alt="car5"></img>
+          </div>
           <div className="carArea">
             <div>area</div>
             <div className="reserve">
@@ -67,7 +73,9 @@ export default function CarsAvailable() {
         </div>
         <div className="carItem">
           <div className="carName"> Car 6 </div>
-          <div className="carImage"> image</div>
+          <div className="carImage">
+            <img src={carData[5].image} alt="car6"></img>
+          </div>
           <div className="carArea">
             <div>area</div>
             <div className="reserve">
@@ -78,7 +86,9 @@ export default function CarsAvailable() {
         </div>
         <div className="carItem">
           <div className="carName"> Car 7 </div>
-          <div className="carImage"> image</div>
+          <div className="carImage">
+            <img src={carData[6].image} alt="car7"></img>
+          </div>
           <div className="carArea">
             <div>area</div>
             <div className="reserve">
