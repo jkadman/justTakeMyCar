@@ -1,4 +1,5 @@
 import React from "react";
+import car1 from "./pictures/car1.png";
 
 export default function CarsAvailable() {
   return (
@@ -7,7 +8,9 @@ export default function CarsAvailable() {
       <div className="availableCars">
         <div className="carItem">
           <div className="carName"> Car 1</div>
-          <div className="carImage"> image</div>
+          <div className="carImage">
+            <img src={car1} alt="car1"></img>
+          </div>
           <div className="carArea">
             <div>area</div>
             <div className="reserve">
