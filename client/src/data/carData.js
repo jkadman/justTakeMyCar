@@ -12,7 +12,7 @@ const carData = [
     image: car1,
     type: "sedan",
     make: "BMW",
-    name: "Red Raptor",
+    name: "Madame Rouge",
     year: "2016",
   },
   {
@@ -36,7 +36,7 @@ const carData = [
     image: car4,
     type: "hatchback",
     make: "Audi",
-    name: "SpaceTime",
+    name: "Mr. Nobody",
     year: "2018",
   },
   {
@@ -60,7 +60,7 @@ const carData = [
     image: car7,
     type: "van",
     make: "Mazda",
-    name: "Traveller",
+    name: "Drifter",
     year: "2017",
   },
 ];
