@@ -7,7 +7,9 @@ export default function CarsAvailable() {
       <div className="availableTitle"> Cars Available now</div>
       <div className="availableCars">
         <div className="carItem">
-          <div className="carName"> Car 1</div>
+          <div className="carName">
+            {carData[0].year} {carData[0].make} {carData[0].name}
+          </div>
           <div className="carImage">
             <img src={carData[0].image} alt="car1"></img>
           </div>
@@ -20,7 +22,9 @@ export default function CarsAvailable() {
           </div>
         </div>
         <div className="carItem">
-          <div className="carName">{carData[0].name} Car 2</div>
+          <div className="carName">
+            {carData[1].year} {carData[1].make} {carData[1].name}
+          </div>
           <div className="carImage">
             <img src={carData[1].image} alt="car2"></img>
           </div>
@@ -33,7 +37,9 @@ export default function CarsAvailable() {
           </div>
         </div>
         <div className="carItem">
-          <div className="carName"> Car 3</div>
+          <div className="carName">
+            {carData[2].year} {carData[2].make} {carData[2].name}
+          </div>
           <div className="carImage">
             <img src={carData[2].image} alt="car3"></img>
           </div>
@@ -46,7 +52,9 @@ export default function CarsAvailable() {
           </div>
         </div>
         <div className="carItem">
-          <div className="carName"> Car 4</div>
+          <div className="carName">
+            {carData[3].year} {carData[3].make} {carData[3].name}
+          </div>
           <div className="carImage">
             <img src={carData[3].image} alt="car4"></img>
           </div>
@@ -59,7 +67,9 @@ export default function CarsAvailable() {
           </div>
         </div>
         <div className="carItem">
-          <div className="carName"> Car 5</div>
+          <div className="carName">
+            {carData[4].year} {carData[4].make} {carData[4].name}
+          </div>
           <div className="carImage">
             <img src={carData[4].image} alt="car5"></img>
           </div>
@@ -72,7 +82,9 @@ export default function CarsAvailable() {
           </div>
         </div>
         <div className="carItem">
-          <div className="carName"> Car 6 </div>
+          <div className="carName">
+            {carData[5].year} {carData[5].make} {carData[5].name}
+          </div>
           <div className="carImage">
             <img src={carData[5].image} alt="car6"></img>
           </div>
@@ -85,7 +97,9 @@ export default function CarsAvailable() {
           </div>
         </div>
         <div className="carItem">
-          <div className="carName"> Car 7 </div>
+          <div className="carName">
+            {carData[6].year} {carData[6].make} {carData[6].name}
+          </div>
           <div className="carImage">
             <img src={carData[6].image} alt="car7"></img>
           </div>
