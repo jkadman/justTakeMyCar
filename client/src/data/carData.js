@@ -5,6 +5,13 @@ import car4 from "./pictures/car4.png";
 import car5 from "./pictures/car5.png";
 import car6 from "./pictures/car6.png";
 import car7 from "./pictures/car7.png";
+import car8 from "./pictures/car8.png";
+import car9 from "./pictures/car9.png";
+import car10 from "./pictures/car10.png";
+import car11 from "./pictures/car11.png";
+import car12 from "./pictures/car12.png";
+import car13 from "./pictures/car13.png";
+import car14 from "./pictures/car14.png";
 
 const carData = [
   {
@@ -62,6 +69,62 @@ const carData = [
     make: "Mazda",
     name: "Drifter",
     year: "2017",
+  },
+  {
+    carNumber: 8,
+    image: car8,
+    type: "SUV",
+    make: "Mercedes",
+    name: "Magneto",
+    year: "2015",
+  },
+  {
+    carNumber: 9,
+    image: car9,
+    type: "convertable",
+    make: "Audi",
+    name: "Blue Lagoon",
+    year: "2023",
+  },
+  {
+    carNumber: 10,
+    image: car10,
+    type: "sports",
+    make: "Ferrari",
+    name: "Tomato",
+    year: "2022",
+  },
+  {
+    carNumber: 11,
+    image: car11,
+    type: "sedan",
+    make: "Subaru",
+    name: "Golf Ball",
+    year: "2016",
+  },
+  {
+    carNumber: 12,
+    image: car12,
+    type: "truck",
+    make: "Toyota",
+    name: "Lugger",
+    year: "2019",
+  },
+  {
+    carNumber: 13,
+    image: car13,
+    type: "sedan",
+    make: "Volksvagen",
+    name: "Gnat",
+    year: "2021",
+  },
+  {
+    carNumber: 14,
+    image: car14,
+    type: "sport convertible",
+    make: "Porche",
+    name: "Trickster",
+    year: "2021",
   },
 ];
 
