@@ -1,6 +1,14 @@
 import React from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom'
+
 
 export default function Footer() {
+  const navigate = useNavigate();
+
+  const linkStolen = () => {
+    navigate('/stolen')
+  }
+
   return (
     <div>
       <footer className="footer">
@@ -23,7 +31,7 @@ export default function Footer() {
             <a className="message" href="#">Contact Us</a>
           </div>
           <div>
-            <a className="reportButton" href="#">Report Car Stolen</a>
+            <a className="reportButton" onClick={linkStolen}>Report Car Stolen</a>
           </div>
         </div>
       </footer>
