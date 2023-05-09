@@ -20,7 +20,6 @@ function App() {
   return (
     <>
       <Header />
-        <BrowserRouter>
           <Routes>
             <Route exact path="/" element={<CarsAvailable />} />
             <Route exact path="/login" element={<Loginpage />} />
@@ -30,7 +29,6 @@ function App() {
       {/* <CarsAvailable /> */}
       {/* <CarsTotal /> */}
           </Routes>
-        </BrowserRouter>
       <Footer/>
     </>
   );
