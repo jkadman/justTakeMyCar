@@ -1,17 +1,27 @@
 import React, { useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom'
 
 
 
 export default function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-  };
+  // const handleLogin = () => {
+  //   setIsLoggedIn(true);
+  // };
 
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-  };
+  // const handleLogout = () => {
+  //   setIsLoggedIn(false);
+  // };
+
+  const linkRegister = () => {
+    navigate('/register')
+  }
+
+  const linkLogin = () => {
+    navigate('/login')
+  }
 
   return (
     <header className="header">
@@ -22,14 +32,14 @@ export default function Header() {
         <h1>Just Take My Car</h1>
       </span>
       <span className="headerSection buttons">
-        {isLoggedIn ? (
-          <button className="buttonContainer" onClick={handleLogout}>Logout</button>
-        ) : (
+        {/* {isLoggedIn ? (
+          <button className="buttonContainer" >Logout</button>
+        ) : ( */}
           <>
-            <button className="loginButton" onClick={handleLogin}>Login</button>
-            <button className="registerButton">Register</button>
+            <button className="loginButton" onClick={linkLogin}>Login</button>
+            <button className="registerButton" onClick={linkRegister}>Register</button>
           </>
-        )}
+        {/* )} */}
       </span>
     </header>
   );
