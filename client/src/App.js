@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import CarsAvailableseemore from './CarsAvailableseemore'
+import Header from './Header';
+import CarsAvailable from './CarsAvailable';
+import CarsTotal from './CarsTotal';
+import Footer from './Footer';
+import Loginpage from './Loginpage';
 import './App.css';
+import Totalavailableseemore from './Totalavailableseemore';
+
+
+
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <CarsAvailableseemore/>
+      {/* <Totalavailableseemore/> */}
+      {/* <CarsAvailable /> */}
+      {/* <CarsTotal /> */}
+      <Footer/>
+    </>
   );
 }
 
