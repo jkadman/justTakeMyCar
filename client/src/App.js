@@ -3,6 +3,7 @@ import CarsAvailable from "./CarsAvailable";
 import CarsTotal from "./CarsTotal";
 import Footer from "./Footer";
 import Loginpage from "./Loginpage";
+import About from "./About";
 import "./App.css";
 
 function App() {
