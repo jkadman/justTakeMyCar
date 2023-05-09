@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom'
+import useNavigation from './hooks/navigate';
 
 
 
 export default function Header() {
-  const navigate = useNavigate();
+  const { navigateTo } = useNavigation();
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // const handleLogin = () => {
@@ -14,14 +15,7 @@ export default function Header() {
   // const handleLogout = () => {
   //   setIsLoggedIn(false);
   // };
-
-  const linkRegister = () => {
-    navigate('/register')
-  }
-
-  const linkLogin = () => {
-    navigate('/login')
-  }
+ 
 
   return (
     <header className="header">
@@ -36,8 +30,8 @@ export default function Header() {
           <button className="buttonContainer" >Logout</button>
         ) : ( */}
           <>
-            <button className="loginButton" onClick={linkLogin}>Login</button>
-            <button className="registerButton" onClick={linkRegister}>Register</button>
+            <button className="loginButton" onClick={() => navigateTo('/login')}>Login</button>
+            <button className="registerButton" onClick={() => navigateTo('/register')}>Register</button>
           </>
         {/* )} */}
       </span>
