@@ -6,9 +6,8 @@ import Registerform from './Registerform'
 export default function Registerpage() {
   return (
     <>
-      <Header />
-    <Registerform />
-      <Footer/>
+    {/* <Registerform /> */}
+    <h1>register page test</h1>
     </>
     // test 123
   )
