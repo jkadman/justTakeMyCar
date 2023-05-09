@@ -1,0 +1,28 @@
+.about {
+  text-align: center;
+  font-family: "Signika", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #b30303;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.aboutContent {
+  text-align: center;
+  color: #020108;
+  font-size: 20px;
+  font-family: cursive;
+  padding-left: 60px;
+  padding-right: 60px;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+p.compname {
+  font-family: "Signika", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #b30303;
+  padding-top: 10px;
+}
