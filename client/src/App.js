@@ -5,6 +5,8 @@ import CarsAvailable from './CarsAvailable';
 import CarsTotal from './CarsTotal';
 import Footer from './Footer';
 import Loginpage from './Loginpage';
+import Registerpage from './Registerpage'
+import StolenCar from './StolenCar'
 import index from './index'
 import './App.css';
 import Totalavailableseemore from './Totalavailableseemore';
@@ -20,9 +22,10 @@ function App() {
       <Header />
         <BrowserRouter>
           <Routes>
-            <Route exact path="/login">
-              element={<Loginpage />}
-            </Route>
+            <Route exact path="/" element={<CarsAvailable />} />
+            <Route exact path="/login" element={<Loginpage />} />
+            <Route exact path="/register" element={<Registerpage />} />
+            <Route exact path="/stolen" element={<StolenCar />} />
       {/* <Totalavailableseemore/> */}
       {/* <CarsAvailable /> */}
       {/* <CarsTotal /> */}
