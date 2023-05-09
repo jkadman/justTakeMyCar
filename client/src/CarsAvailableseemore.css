@@ -1,0 +1,31 @@
+.availableSeemore{
+
+  display:flex ;
+flex-direction: row;
+}
+
+
+.availableCarsmore{
+  height: 800px;
+  width: 80%;
+  margin: 0 auto; /* this will center the divs horizontally */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
+  padding: 10px;
+  gap: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+
+}
+
+.Selectors{
+  width: 50 px;
+  height: 80px;
+  background-color: black;
+  border: 1px solid black;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+}
