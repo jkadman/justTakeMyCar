@@ -1,21 +1,31 @@
+import CarsAvailableseemore from "./CarsAvailableseemore";
 import Header from "./Header";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CarsAvailable from "./CarsAvailable";
 import CarsTotal from "./CarsTotal";
 import Footer from "./Footer";
 import Loginpage from "./Loginpage";
+import Registerpage from "./Registerpage";
+import StolenCar from "./StolenCar";
 import About from "./About";
-import "./About.css";
+import index from "./index";
 import "./App.css";
+import "./About.css";
+import Totalavailableseemore from "./Totalavailableseemore";
 
 function App() {
   return (
     <>
       <Header />
-      {/*<CarsAvailableseemore />*/}
-      {/* <Totalavailableseemore/> */}
-      {/* <CarsAvailable /> */}
-      {/* <CarsTotal /> */}
-      {/*<About /> */}
+      <Routes>
+        <Route exact path="/" element={<CarsAvailable />} />
+        <Route exact path="/login" element={<Loginpage />} />
+        <Route exact path="/register" element={<Registerpage />} />
+        <Route exact path="/stolen" element={<StolenCar />} />
+        {/* <Totalavailableseemore/> */}
+        {/* <CarsAvailable /> */}
+        {/* <CarsTotal /> */}
+      </Routes>
       <Footer />
     </>
   );
