@@ -3,6 +3,7 @@ import useNavigation from './hooks/navigate';
 
 
 export default function Header() {
+  // connects to link navigation hook
   const { navigateTo } = useNavigation();
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
 

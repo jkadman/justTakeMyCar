@@ -1,6 +1,6 @@
 import CarsAvailableseemore from './CarsAvailableseemore'
 import Header from './Header';
-import { BrowserRouter, Route, Routes} from 'react-router-dom'
+import { Route, Routes} from 'react-router-dom'
 import CarsAvailable from './CarsAvailable';
 import CarsTotal from './CarsTotal';
 import Footer from './Footer';
