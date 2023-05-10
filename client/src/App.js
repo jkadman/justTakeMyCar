@@ -15,21 +15,19 @@ import Totalavailableseemore from './Totalavailableseemore';
 
 
 function App() {
-
-
   return (
     <>
       <Header />
-          <Routes>
-            <Route exact path="/" element={<CarsAvailable />} />
-            <Route exact path="/login" element={<Loginpage />} />
-            <Route exact path="/register" element={<Registerpage />} />
-            <Route exact path="/stolen" element={<StolenCar />} />
-      {/* <Totalavailableseemore/> */}
-      {/* <CarsAvailable /> */}
-      {/* <CarsTotal /> */}
-          </Routes>
-      <Footer/>
+      <Routes>
+        <Route exact path="/" element={<CarsAvailable />} />
+        <Route exact path="/login" element={<Loginpage />} />
+        <Route exact path="/register" element={<Registerpage />} />
+        <Route exact path="/stolen" element={<StolenCar />} />
+        {/* <Totalavailableseemore/> */}
+        {/* <CarsAvailable /> */}
+        {/* <CarsTotal /> */}
+      </Routes>
+      <Footer />
     </>
   );
 }
