@@ -23,7 +23,7 @@ export default function Footer() {
         </div>
         <div className="footerSection aboutUs">
           <div>
-            <a href="#">About Us</a>
+            <a onClick={() => navigateTo('/about')}>About Us</a>
           </div>
           <div>
             <a className="message" href="#">Contact Us</a>

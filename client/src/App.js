@@ -7,6 +7,7 @@ import Footer from './Footer';
 import Loginpage from './Loginpage';
 import Registerpage from './Registerpage'
 import StolenCar from './StolenCar'
+import About from './About'
 import index from './index'
 import './App.css';
 import Totalavailableseemore from './Totalavailableseemore';
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/login" element={<Loginpage />} />
         <Route exact path="/register" element={<Registerpage />} />
         <Route exact path="/stolen" element={<StolenCar />} />
+        <Route exact path="/about" element={<About />} />
         {/* <Totalavailableseemore/> */}
         {/* <CarsAvailable /> */}
         {/* <CarsTotal /> */}
