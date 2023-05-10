@@ -7,10 +7,8 @@ import Footer from "./Footer";
 import Loginpage from "./Loginpage";
 import Registerpage from "./Registerpage";
 import StolenCar from "./StolenCar";
-import About from "./About";
 import index from "./index";
 import "./App.css";
-import "./About.css";
 import Totalavailableseemore from "./Totalavailableseemore";
 
 function App() {
