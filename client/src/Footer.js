@@ -1,13 +1,12 @@
 import React from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom'
+import useNavigation from './hooks/navigate';
+
 
 
 export default function Footer() {
-  const navigate = useNavigate();
+  const { navigateTo } = useNavigation();
 
-  const linkStolen = () => {
-    navigate('/stolen')
-  }
 
   return (
     <div>
@@ -31,7 +30,7 @@ export default function Footer() {
             <a className="message" href="#">Contact Us</a>
           </div>
           <div>
-            <a className="reportButton" onClick={linkStolen}>Report Car Stolen</a>
+            <a className="reportButton" onClick={() => navigateTo('/stolen')}>Report Car Stolen</a>
           </div>
         </div>
       </footer>
