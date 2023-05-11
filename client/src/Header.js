@@ -16,6 +16,7 @@ export default function Header() {
  
 
   return (
+    <div className="parentDiv">
     <header className="header">
       <span className="headerSection registerLink">
         <button className="registerLink" onClick={() => navigateTo('/Registercar')}>Register My Car</button>
@@ -34,6 +35,7 @@ export default function Header() {
         {/* )} */}
       </span>
     </header>
+    </div>
   );
       }
   
