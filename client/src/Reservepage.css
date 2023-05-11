@@ -1,0 +1,53 @@
+#container1 {
+    border: 1px solid black;
+    width: 800px;
+    margin: 0 auto;
+    height: 500px;
+    border-radius: 10px;
+  }
+  
+  
+  #header1 {
+    width: 80%;
+    height: 50px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  
+  #image {
+    height: 300px;
+    width: 90%;
+    border: 1px solid grey;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+  }
+  
+  
+  #footer1 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;      /* Padding on all sides */
+    padding-top: 30px;  /* Padding only on the top */
+    padding-right: 20px; /* Padding only on the right */
+    padding-bottom: 15px;
+  }
+  
+  .item1 {
+    width: 120px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+   
+  }
+
+  .header12{
+    padding-top: 20px;
+  }
+  
