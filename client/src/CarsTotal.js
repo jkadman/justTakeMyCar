@@ -116,8 +116,10 @@ export default function CarsTotal() {
         </div>
         <div className="seeMore">
           {" "}
-         
-          <a className="seeMore" onClick={() => navigateTo('/Totalavailableseemore')}>see more</a>
+
+          <button className="seeMore" onClick={() => navigateTo('/Totalavailableseemore')}>
+  See More
+</button>
         </div>
       </div>
     </div>
