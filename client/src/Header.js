@@ -1,7 +1,6 @@
 import useNavigation from './hooks/navigate';
 
 
-
 export default function Header() {
   // connects to link navigation hook
   const { navigateTo } = useNavigation();
@@ -17,12 +16,13 @@ export default function Header() {
  
 
   return (
+    <div className="parentDiv">
     <header className="header">
       <span className="headerSection registerLink">
-        <h1><a href="#">Register My Car</a></h1>
+        <button className="registerLink" onClick={() => navigateTo('/Registercar')}>Register My Car</button>
       </span>
       <span className="headerSection title">
-        <h1>Just Take My Car</h1>
+        <h1 onClick={() => navigateTo('/')}>Just Take My Car</h1>
       </span>
       <span className="headerSection buttons">
         {/* {isLoggedIn ? (
@@ -35,5 +35,8 @@ export default function Header() {
         {/* )} */}
       </span>
     </header>
+    </div>
   );
-}
+      }
+  
+  

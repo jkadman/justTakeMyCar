@@ -1,78 +1,77 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function SignUpForm() {
-  var $password = $("#password");
-var $confirmPassword = $("#confirm_password");
+  const [formData, setFormData] = useState({
+    username: '',
+    fullName: '',
+    email: '',
+    password: ''
+  });
 
-//Hide hints
-$("form span").hide();
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
 
-function isPasswordValid() {
-  return $password.val().length > 8;
-}
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent form submission
 
-function arePasswordsMatching() {
-  return $password.val() === $confirmPassword.val();
-}
+    // Perform registration logic here
+    // You can access the form data using formData object
+    console.log(formData);
+  };
 
-function canSubmit() {
-  return isPasswordValid() && arePasswordsMatching();
-}
-
-function passwordEvent(){
-    //Find out if password is valid
-    if(isPasswordValid()) {
-      //Hide hint if valid
-      $password.next().hide();
-    } else {
-      //else show hint
-      $password.next().show();
-    }
-}
-
-function confirmPasswordEvent() {
-  //Find out if password and confirmation match
-  if(arePasswordsMatching()) {
-    //Hide hint if match
-    $confirmPassword.next().hide();
-  } else {
-    //else show hint
-    $confirmPassword.next().show();
-  }
-}
-
-function enableSubmitEvent() {
-  $("#submit").prop("disabled", !canSubmit());
-}
-
-//When event happens on password input
-$password.focus(passwordEvent).keyup(passwordEvent).keyup(confirmPasswordEvent).keyup(enableSubmitEvent);
-
-//When event happens on confirmation input
-$confirmPassword.focus(confirmPasswordEvent).keyup(confirmPasswordEvent).keyup(enableSubmitEvent);
-
-enableSubmitEvent();
   return (
-    <div>
-      <form action="#" method="post">
-        <h2>Sign Up</h2>
-        <p>
-          <label htmlFor="email" className="floatLabel">Email</label>
-          <input id="email" name="email" type="text" />
-        </p>
-        <p>
-          <label htmlFor="password" className="floatLabel">Password</label>
-          <input id="password" name="password" type="password" />
-          <span>Enter a password longer than 8 characters</span>
-        </p>
-        <p>
-          <label htmlFor="confirm_password" className="floatLabel">Confirm Password</label>
-          <input id="confirm_password" name="confirm_password" type="password" />
-          <span>Your passwords do not match</span>
-        </p>
-        <p>
-          <input type="submit" value="Create My Account" id="submit" />
-        </p>
+    <div style={{ width: '400px', height: '400px', border: '1px solid black', borderRadius: '10px', padding: '20px', margin: '0 auto' }}>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="fullName">Full Name:</label>
+        <input
+          type="text"
+          id="fullName"
+          name="fullName"
+          placeholder="Enter your full name"
+          value={formData.fullName}
+          onChange={handleInputChange}
+          required
+        />
+
+        <label htmlFor="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Enter your username"
+          value={formData.username}
+          onChange={handleInputChange}
+          required
+        />
+
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          value={formData.email}
+          onChange={handleInputChange}
+          required
+        />
+
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter your password"
+          value={formData.password}
+          onChange={handleInputChange}
+          required
+        />
+
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

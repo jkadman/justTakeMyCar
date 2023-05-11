@@ -1,7 +1,11 @@
 import React from "react";
 import carData from "./data/carData";
+import useNavigation from './hooks/navigate';
+import Reservepage from "./Reservepage";
+
 
 export default function CarsAvailable() {
+  const { navigateTo } = useNavigation();
   return (
     <div className="carsAvailable">
       <div className="availableTitle"> Cars Available now</div>
@@ -17,7 +21,8 @@ export default function CarsAvailable() {
             <div>area</div>
             <div className="reserve">
               {" "}
-              <a href="#">Reserve</a>
+              <a className="Reserve" onClick={() => navigateTo('/Reserve')}>Reserve</a>
+              {/* <a href="#">Reserve</a> */}
             </div>
           </div>
         </div>
@@ -113,7 +118,8 @@ export default function CarsAvailable() {
         </div>
         <div className="seeMore">
           {" "}
-          <a href="#">See more</a>
+          {/* <a href="#">See more</a> */}
+          <a className="seeMore" onClick={() => navigateTo('/Carsavailablemore')}>see more</a>
         </div>
       </div>
     </div>

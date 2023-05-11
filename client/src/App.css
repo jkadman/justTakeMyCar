@@ -7,6 +7,11 @@
   background-color: #f2f2f2;
 }
 
+.parentDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .header{
   height: 100px;
@@ -49,6 +54,11 @@
 
 }
 
+.title {
+  flex-grow: 1;
+  text-align: center;
+}
+
 .availableTitle, .totalTitle{
  text-align: center;
  color: #ff4411;
@@ -61,7 +71,7 @@
 
 
 .headerSection{
-
+  margin: 0 10px;
  height: 100px;
  width: 300px;
 }
@@ -73,10 +83,11 @@
 }
 
 .buttons{
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  margin-top: auto;
+  /* display: flex; */
+  /* justify-content: flex-end; */
+  /* align-items: flex-end; */
+  /* margin-top: auto; */
+  height: 60px;
 }
 
 .registerButton, .loginButton {
@@ -175,7 +186,7 @@
   align-items: center;
 }
 
-.headerSection.registerLink a {
+.headerSection .registerLink a {
   text-decoration: none;
   font-weight: bold;
   background-color: red;
