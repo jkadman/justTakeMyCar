@@ -175,7 +175,7 @@
   align-items: center;
 }
 
-.headerSection.registerLink a {
+.headerSection .registerLink a {
   text-decoration: none;
   font-weight: bold;
   background-color: red;
