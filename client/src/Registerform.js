@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 
 export default function SignUpForm() {
   
+  // const [formData, setFormData] = useState({
+  //   username: '',
+  //   fullName: '',
+  //   email: '',
+  //   password: ''
+  // });
+  
   const [fullName, setFullName] = useState("");
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
