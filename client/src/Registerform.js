@@ -38,6 +38,13 @@ export default function SignUpForm() {
     // event.preventDefault(); // Prevent form submission
     // try {
     //   const body = { formDatausername, fullName, email, password };
+    //   const response = fetch("http://localhost:5000/<routehere>" {
+    //    method: "POST",
+    //    headers: { "Content-Type": "application/json" },
+    //    body: JSON.stringify(body)
+    //   });
+          // redirects to a new page
+    //   window.location = "<route>";
     //   console.log(body)
     // } catch (err) {
     //   console.error(err.message);
