@@ -22,7 +22,6 @@ export default function CarsAvailable() {
             <div className="reserve">
               {" "}
               <a className="Reserve" onClick={() => navigateTo('/Reserve')}>Reserve</a>
-              {/* <a href="#">Reserve</a> */}
             </div>
           </div>
         </div>
@@ -118,8 +117,11 @@ export default function CarsAvailable() {
         </div>
         <div className="seeMore">
           {" "}
-          {/* <a href="#">See more</a> */}
-          <a className="seeMore" onClick={() => navigateTo('/Carsavailablemore')}>see more</a>
+          <button className="seeMore" onClick={() => navigateTo('/Carsavailablemore')}>
+  See More
+</button>
+
+
         </div>
       </div>
     </div>
