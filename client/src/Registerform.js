@@ -1,27 +1,50 @@
 import React, { useState } from 'react';
 
 export default function SignUpForm() {
-  const [formData, setFormData] = useState({
-    username: '',
-    fullName: '',
-    email: '',
-    password: ''
-  });
+  
+  const [fullName, setFullName] = useState("");
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
+  // const handleInputChange = (event) => {
+  //   const { name, value } = event.target;
+  //   setFormData((prevState) => ({
+  //     ...prevState,
+  //     [name]: value
+  //   }));
+  // };
+
+  const handleInputChange = (e) => {
+    const {id, value} = e.target;
+    if(id === "fullName"){
+      setFullName(value);
+    }
+    if(id === "userName"){
+      setUserName(value);
+    }
+    if(id === "email"){
+      setEmail(value);
+    }
+    if(id === "password"){
+      setPassword(value);
+    }
+  }
 
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent form submission
-
+    event.preventDefault();
+    console.log(fullName, userName, email, password)
+    // event.preventDefault(); // Prevent form submission
+    // try {
+    //   const body = { formDatausername, fullName, email, password };
+    //   console.log(body)
+    // } catch (err) {
+    //   console.error(err.message);
+    // }
     // Perform registration logic here
     // You can access the form data using formData object
-    console.log(formData);
+    // console.log(formData);
   };
 
   return (
@@ -33,18 +56,18 @@ export default function SignUpForm() {
           id="fullName"
           name="fullName"
           placeholder="Enter your full name"
-          value={formData.fullName}
+          value={fullName}
           onChange={handleInputChange}
           required
         />
 
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="userName">Username:</label>
         <input
           type="text"
-          id="username"
-          name="username"
+          id="userName"
+          name="userName"
           placeholder="Enter your username"
-          value={formData.username}
+          value={userName}
           onChange={handleInputChange}
           required
         />
@@ -55,7 +78,7 @@ export default function SignUpForm() {
           id="email"
           name="email"
           placeholder="Enter your email"
-          value={formData.email}
+          value={email}
           onChange={handleInputChange}
           required
         />
@@ -66,7 +89,7 @@ export default function SignUpForm() {
           id="password"
           name="password"
           placeholder="Enter your password"
-          value={formData.password}
+          value={password}
           onChange={handleInputChange}
           required
         />
