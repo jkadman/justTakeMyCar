@@ -3,6 +3,36 @@
   width: 100%;
   background-color: #f2f2f2
 }
+
+body{
+  background-image: url('../../planning/OC1Y8T0.jpg');
+}
+.component-spacing {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Set a minimum height to make sure the footer stays at the bottom */
+}
+
+.component-container {
+  flex-grow: 1; /* Expand and fill the available vertical space */
+  padding: 20px; /* Adjust the padding to add spacing around the components */
+}
+
+/* Apply any additional styles to the components */
+.component-container > * {
+  margin-bottom: 20px; /* Add vertical spacing between the components */
+}
+
+/* Apply any styles to the footer */
+footer {
+  padding: 20px; /* Add padding to the footer for spacing */
+}
+
+
 .bgColor {
   background-color: #f2f2f2;
 }
@@ -13,10 +43,18 @@
   align-items: center;
 }
 
-.header{
-  height: 100px;
-  width: 100%;
+.availableCars{
+background-color:#EBEDEF  ;
+}
 
+.registeredCars{
+  background-color: #EBEDEF
+}
+
+.header{
+  height: 80px;
+  width: 100%;
+  background-color: #EBEDEF;
   display: flex;
  justify-content: space-around;
  flex-direction: row;
@@ -27,7 +65,7 @@
 .footer{
   height: 100px;
   width: 100%;
-  /* background-color: aqua; */
+  background-color: #EBEDEF;
   border: 1px solid #999;
   display: flex;
   justify-content: space-evenly;
@@ -148,10 +186,22 @@
   width: 100%;
 }
 
-.seeMore{
+.seeMore {
   text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  height: 25px;
+  width: 100px;
 
 }
+
 
 .footerSection {
   margin: 10px;

@@ -5,7 +5,8 @@ import './Totalavailableseemore.css'
 export default function Totalavailableseemore() {
   return (
     <div>
-    <div className="availableTitle"> <h2>Cars inventory </h2></div>
+    <div className="availableTitle"> <h2>Cars inventory </h2>
+    <p> The cars listed here have been registered but not made available yet by the owner. You can still ask for permission</p></div>
     <div className="totalSeemore">
       <div id='Selectors'  className="selectorsContainer">
   <label for="type">Type:</label>

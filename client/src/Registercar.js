@@ -42,7 +42,7 @@ export default function RegisterCar() {
 
   return (
     <div className="container">
-      <h2>Report Stolen Vehicle</h2>
+      <h2>Register your Vehicle</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="firstName">First Name:</label>
         <input
@@ -57,7 +57,7 @@ export default function RegisterCar() {
 
         {/* ...rest of the form code... */}
 
-       
+
         <label htmlFor="lastName">Last Name:</label>
         <input
           type="text"
@@ -76,7 +76,7 @@ export default function RegisterCar() {
   id="phone#"
   name="phone#"
   placeholder="Enter your Phone number"
-  value={formData.phoneNum} 
+  value={formData.phoneNum}
   onChange={handleInputChange}
   required
 />
@@ -87,7 +87,7 @@ export default function RegisterCar() {
   id="Address"
   name="Address"
   placeholder="Enter your Address"
-  value={formData.Address} 
+  value={formData.Address}
   onChange={handleInputChange}
   required
 />
