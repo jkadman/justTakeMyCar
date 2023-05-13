@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 export default function SignUpForm() {
   const [state, setState] = useState({
-    full_name: '',
-    phoneNumber: '',
+    name: '',
+    phone_number: '',
     email: '',
     password: ''
   });
@@ -22,8 +22,8 @@ export default function SignUpForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { full_name, email, username, password } = state;
-      const body = { full_name, email, username, password };
+      const { name, email, phone_number, password } = state;
+      const body = { name, email, phone_number, password };
       const response = await fetch("http://localhost:5001/register", {
        method: "POST",
        headers: { "Content-Type": "application/json" },
@@ -39,24 +39,24 @@ export default function SignUpForm() {
   return (
     <div style={{ width: '400px', height: '400px', border: '1px solid black', borderRadius: '10px', padding: '20px', margin: '0 auto' }}>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="fullName">Full Name:</label>
+        <label htmlFor="name">Full Name:</label>
         <input
           type="text"
-          id="fullName"
-          name="fullName"
+          id="name"
+          name="name"
           placeholder="Enter your full name"
-          value={formData.fullName}
+          value={state.name}
           onChange={handleInputChange}
           required
         />
 
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="phone_number">Phone Number:</label>
         <input
           type="text"
-          id="phoneNumber"
-          name="phoneNumber"
+          id="phone_number"
+          name="phone_number"
           placeholder="Enter your phone number"
-          value={formData.phoneNumber}
+          value={state.phone_number}
           onChange={handleInputChange}
           required
         />
@@ -67,7 +67,7 @@ export default function SignUpForm() {
           id="email"
           name="email"
           placeholder="Enter your email"
-          value={formData.email}
+          value={state.email}
           onChange={handleInputChange}
           required
         />
@@ -78,7 +78,7 @@ export default function SignUpForm() {
           id="password"
           name="password"
           placeholder="Enter your password"
-          value={formData.password}
+          value={state.password}
           onChange={handleInputChange}
           required
         />

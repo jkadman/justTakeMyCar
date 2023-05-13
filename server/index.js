@@ -8,14 +8,13 @@ app.use(cors());
 app.use(express.json());
 
 // create a new user
-// change username to phone number
 app.post('/register', async(req, res) => {
   try {
     console.log(req.body)
-    const { full_name, email, username, password } = req.body;
+    const { name, email, phone_number, password } = req.body;
     const newUser = await pool.query(
-      "INSERT INTO users (full_name, email, username, password) VALUES($1, $2, $3, $4) RETURNING * ",
-      [full_name, email, username, password]
+      "INSERT INTO users (name, email, phone_number, password) VALUES($1, $2, $3, $4) RETURNING * ",
+      [name, email, phone_number, password]
     );
     res.status(200).json({ message: 'Registration successful' }); // Send a success response
   } catch (err) {
