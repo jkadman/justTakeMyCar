@@ -1,4 +1,4 @@
-INSERT INTO cars (owner_id, car_photo, make, type, name, colour, price_per_day, year)
+INSERT INTO cars (user_id, car_photo, make, type, name, colour, price_per_day, year)
 VALUES (1, bytea('/justTakeMyCar/client/src/data/pictures/car1.png'), 'BMW', 'sedan', 'Madame Rouge', 'red', 340.50, 2016),
 (2, bytea('/justTakeMyCar/client/src/data/pictures/car2.png'), 'Audi', 'sedan', 'Blackfly', 'black', 218.10, 2022), 
 (3, bytea('/justTakeMyCar/client/src/data/pictures/car3.png'), 'Ducati', 'motorcycle', 'Frogger', 'red', 68.10, 2020),

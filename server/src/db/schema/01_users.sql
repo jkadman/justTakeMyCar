@@ -2,13 +2,8 @@ DROP TABLE IF EXISTS users CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
-  first_name VARCHAR(255) NOT NULL,
-  last_name VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL,
   phone_number VARCHAR(32) NOT NULL,
-  location VARCHAR(255) NOT NULL,
-  owner BOOLEAN DEFAULT FALSE,
-  drivers_licence VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
-  username VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL
 );
