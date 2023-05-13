@@ -51,7 +51,14 @@ export default function RegisterCar() {
           <option value="Ducati">Ducati</option>
           <option value="Jeep"> Jeep</option>
           <option value="Bentley">Bentley</option>
-          <option value="Other">Other</option>
+          <option value="Other">Mazda</option>
+          <option value="Other">Ferrari</option>
+          <option value="Other">Mercedes</option>
+          <option value="Other">Subaru</option>
+          <option value="Other">Toyota</option>
+          <option value="Other">Volksvagen</option>
+          <option value="Other">Porche</option>
+          <option value="Other">Subaru</option>
         </select>
 
         <label htmlFor="Color">Color:</label>
