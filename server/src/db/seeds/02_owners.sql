@@ -1,0 +1,1 @@
+INSERT INTO owners (user_id) VALUES (1), (3), (4), (8), (9), (11);
