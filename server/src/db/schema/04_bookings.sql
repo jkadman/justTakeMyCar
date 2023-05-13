@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS bookings CASCADE;
+
+CREATE TABLE bookings (
+  id SERIAL PRIMARY KEY NOT NULL,
+  owner_id INTEGER REFERENCES,
+  cars_id INTEGER REFERENCES,
+  user_id INTEGER REFERENCES,
+  city VARCHAR(255) NOT NULL,
+  booking_start DATE,
+  booking_end DATE,
+  good_state_start BOOLEAN DEFAULT TRUE,
+  good_state_end BOOLEAN DEFAULT FALSE,
+  deposit BOOLEAN DEFAULT FALSE,
+  review_id INTEGER REFERENCES
+);
