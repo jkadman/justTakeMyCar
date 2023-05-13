@@ -1,17 +1,17 @@
 INSERT INTO users (first_name, last_name, phone_number, email, location, owner, drivers_licence, username, password)
-VALUES ('Aaron', 'Aaronson', '604 555 5656' 'aaaa@gmail.com', 'New Westminster', true,  'ABCD1', 'aaron', '12345');
+VALUES ('Aaron', 'Aaronson', '604 555 5656', 'aaaa@gmail.com', 'New Westminster', true,  'ABCD1', 'aaron', '12345');
 
 INSERT INTO users (first_name, last_name, phone_number, email, location, owner, drivers_licence, username, password)
 VALUES ('Betty', 'Blueberry', '604 111 1234', 'betblue@gmail.com', 'Vancouver', false, 'ABCD2', 'betty', '23456');
 
 INSERT INTO users (first_name, last_name, phone_number, email, location, owner, drivers_licence, username, password)
-VALUES ('Colin', 'Collins', '604 112 2234', 'collins@outlook.com', 'Langley', true, 'ABCD4', 'collin' '34567');
+VALUES ('Colin', 'Collins', '604 112 2234', 'collins@outlook.com', 'Langley', true, 'ABCD4', 'collin', '34567');
 
 INSERT INTO users (first_name, last_name, phone_number, email, location, owner, drivers_licence, username, password)
 VALUES ('Leslie', 'Lincod', '604 152 2334', 'leslie@outlook.com', 'Coquitlam', true, 'ABCD5', 'leslie' '45678');
 
 INSERT INTO users (first_name, last_name, phone_number, email, location, owner, drivers_licence, username, password)
-VALUES ('Jeffery', 'Ming', '604 222 2638', 'jeffery@gmail.com', 'North Vancouver', false, 'ABCD6', 'jeffery' '56789');
+VALUES ('Jeffery', 'Ming', '604 222 2638', 'jeffery@gmail.com', 'North Vancouver', false, 'ABCD6', 'jeffery', '56789');
 
 INSERT INTO users (first_name, last_name, phone_number, email, location, owner, drivers_licence, username, password)
 VALUES ('Francis', 'Bacon', '604 894 6698', 'francis@gmail.com', 'Vancouver', false, 'ABCD7', 'francis' '56781');
