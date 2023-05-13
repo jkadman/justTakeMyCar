@@ -15,7 +15,7 @@ export default function Reservepage() {
     <div id='container1'>
       <div id='header1'>
         <div className='header12'>Car name </div>
-        <div className='header12'>Username</div>
+        <div className='header123'>Full</div>
       </div>
 
       <div id='image'></div>
