@@ -6,6 +6,10 @@
 
 body{
   background-image: url('../../planning/OC1Y8T0.jpg');
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
 }
 .component-spacing {
   margin-top: 20px;
@@ -15,6 +19,7 @@ body{
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Set a minimum height to make sure the footer stays at the bottom */
+
 }
 
 .component-container {
@@ -52,7 +57,7 @@ background-color:#EBEDEF  ;
 }
 
 .header{
-  height: 80px;
+  height: 60px;
   width: 100%;
   background-color: #EBEDEF;
   display: flex;
@@ -60,16 +65,18 @@ background-color:#EBEDEF  ;
  flex-direction: row;
  border: 1px solid #999;
  border-radius: 10px;
+ margin-right: 10px;
 }
 
 .footer{
   height: 100px;
-  width: 100%;
+  width: 95%;
   background-color: #EBEDEF;
   border: 1px solid #999;
   display: flex;
   justify-content: space-evenly;
   border-radius: 10px;
+
 }
 
 .reserve a {
