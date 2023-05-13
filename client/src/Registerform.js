@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function SignUpForm() {
-  
   const [state, setState] = useState({
     full_name: '',
-    username: '',
+    phoneNumber: '',
     email: '',
     password: ''
   });
-  
+
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -40,24 +39,24 @@ export default function SignUpForm() {
   return (
     <div style={{ width: '400px', height: '400px', border: '1px solid black', borderRadius: '10px', padding: '20px', margin: '0 auto' }}>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="full_name">Full Name:</label>
+        <label htmlFor="fullName">Full Name:</label>
         <input
           type="text"
-          id="full_name"
-          name="full_name"
+          id="fullName"
+          name="fullName"
           placeholder="Enter your full name"
-          value={state.full_name}
+          value={formData.fullName}
           onChange={handleInputChange}
           required
         />
 
-        <label htmlFor="userName">Username:</label>
+        <label htmlFor="username">Username:</label>
         <input
           type="text"
-          id="username"
-          name="username"
-          placeholder="Enter your username"
-          value={state.username}
+          id="phoneNumber"
+          name="phoneNumber"
+          placeholder="Enter your phone number"
+          value={formData.phoneNumber}
           onChange={handleInputChange}
           required
         />
@@ -68,7 +67,7 @@ export default function SignUpForm() {
           id="email"
           name="email"
           placeholder="Enter your email"
-          value={state.email}
+          value={formData.email}
           onChange={handleInputChange}
           required
         />
@@ -79,13 +78,14 @@ export default function SignUpForm() {
           id="password"
           name="password"
           placeholder="Enter your password"
-          value={state.password}
+          value={formData.password}
           onChange={handleInputChange}
           required
         />
 
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
   );
 }
