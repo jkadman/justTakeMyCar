@@ -1,23 +1,16 @@
-import React from 'react';
-import { useState } from 'react';
-
+import React, { useState } from 'react';
+import './Registercar.css'
 export default function RegisterCar() {
-  const [selectedButtons, setSelectedButtons] = useState([]);
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phoneNum: '',
-    Address:''
+    CarMake: '',
+    Type: '',
+    Address: '',
+    Year: '',
+    PricePerDay: '',
+    Color: ''
   });
 
-  const handleButtonClick = (buttonValue) => {
-    if (selectedButtons.includes(buttonValue)) {
-      setSelectedButtons(selectedButtons.filter((value) => value !== buttonValue));
-    } else {
-      setSelectedButtons([...selectedButtons, buttonValue]);
-    }
-  };
+  console.log(formData);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -44,58 +37,97 @@ export default function RegisterCar() {
     <div className="container">
       <h2>Register your Vehicle</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="firstName">First Name:</label>
+        <label htmlFor="CarMake">Car Make:</label>
+        <select
+          id="CarMake"
+          name="CarMake"
+          value={formData.CarMake}
+          onChange={handleInputChange}
+          required
+        >
+          <option value="">Select Car Make</option>
+          <option value="BMW'">BMW</option>
+          <option value="Audi">Audi</option>
+          <option value="Ducati">Ducati</option>
+          <option value="Jeep"> Jeep</option>
+          <option value="Bentley">Bentley</option>
+          <option value="Other">Mazda</option>
+          <option value="Other">Ferrari</option>
+          <option value="Other">Mercedes</option>
+          <option value="Other">Subaru</option>
+          <option value="Other">Toyota</option>
+          <option value="Other">Volksvagen</option>
+          <option value="Other">Porche</option>
+          <option value="Other">Subaru</option>
+        </select>
+
+        <label htmlFor="Color">Color:</label>
+        <select
+          id="Color"
+          name="Color"
+          value={formData.Color}
+          onChange={handleInputChange}
+          required
+        >
+          <option value="">Select Color</option>
+          <option value="Red">Red</option>
+          <option value="Blue">Blue</option>
+          <option value="Green">Green</option>
+          <option value="Yellow">Yellow</option>
+          <option value="Black">Black</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label htmlFor="Type">Type:</label>
+        <select
+          id="Type"
+          name="Type"
+          value={formData.Type}
+          onChange={handleInputChange}
+          required
+        >
+          <option value="">Select Type</option>
+          <option value="Option A">Sedan </option>
+          <option value="Option B">Truck</option>
+          <option value="Option C">SUV</option>
+          <option value="Option D">Van</option>
+          <option value="Option E">Other</option>
+        </select>
+
+        <label htmlFor="Address">Address:</label>
         <input
           type="text"
-          id="firstName"
-          name="firstName"
-          placeholder="Enter your first name"
-          value={formData.firstName}
+          id="Address"
+          name="Address"
+          placeholder="Enter your Address"
+          value={formData.Address}
           onChange={handleInputChange}
           required
         />
 
-        {/* ...rest of the form code... */}
-
-
-        <label htmlFor="lastName">Last Name:</label>
+        <label htmlFor="Year">Year:</label>
         <input
           type="text"
-          id="lastName"
-          name="lastName"
-          placeholder="Enter your last name"
-          value={formData.lastName}
+          id="Year"
+          name="Year"
+          placeholder="Enter the year"
+          value={formData.Year}
           onChange={handleInputChange}
           required
         />
 
+        <label htmlFor="PricePerDay">Price per Day:</label>
+        <input
+          type="text"
+          id="PricePerDay"
+          name="PricePerDay"
+          placeholder="Enter the price per day"
+          value={formData.PricePerDay}
+          onChange={handleInputChange}
+          required
+        />
 
-<label htmlFor="phone#">Phone number</label>
-<input
-  type="text"
-  id="phone#"
-  name="phone#"
-  placeholder="Enter your Phone number"
-  value={formData.phoneNum}
-  onChange={handleInputChange}
-  required
-/>
-
-<label htmlFor="Address"> Address</label>
-<input
-  type="text"
-  id="Address"
-  name="Address"
-  placeholder="Enter your Address"
-  value={formData.Address}
-  onChange={handleInputChange}
-  required
-/>
-
-
-
-
-<div className="image-upload">
+        <div className="image-upload">
           <label htmlFor="image">Upload Image:</label>
           <input type="file" id="image" name="image" />
         </div>

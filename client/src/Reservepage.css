@@ -1,78 +1,166 @@
 #container1 {
-    border: 1px solid black;
-    width: 800px;
-    margin: 0 auto;
-    height: 500px;
-    border-radius: 10px;
-    background-color: #EBEDEF;
-  }
+  border: 1px solid black;
+  width: 800px;
+  margin: 0 auto;
+  height: 500px;
+  border-radius: 10px;
+  background-color: #EBEDEF;
+}
+
+#header1 {
+  width: 80%;
+  height: 50px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+#image {
+  height: 300px;
+  width: 90%;
+  border: 1px solid grey;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+#footer1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  padding-top: 30px;
+  padding-right: 20px;
+  padding-bottom: 15px;
+}
+
+.item1 {
+  width: 120px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+#reserve {
+  height: 30px;
+  width: 90px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 28px;
+}
+
+.header12 {
+  padding-top: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 100px;
+  text-align: center;
+}
+
+.header123 {
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.datePicker {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 200px;
+}
+#container1 {
+  border: 1px solid black;
+  width: 800px;
+  margin: 0 auto;
+  height: 500px;
+  border-radius: 10px;
+  background-color: #EBEDEF;
+}
+
+#header1 {
+  width: 80%;
+  height: 50px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+#image {
+  height: 300px;
+  width: 90%;
+  border: 1px solid grey;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+#footer1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  padding-top: 30px;
+  padding-right: 20px;
+  padding-bottom: 15px;
+}
+
+.item1 {
+  width: 120px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+#reserve {
+  height: 30px;
+  width: 90px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 28px;
+}
+
+.header12 {
+  padding-top: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 100px;
+  text-align: center;
+}
+
+.header123 {
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 5px;
+  display: flex;
+  justify-content: center;
+}
 
 
-  #header1 {
-    width: 80%;
-    height: 50px;
-    padding-top: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 10px;
 
-  }
-
-
-  #image {
-    height: 300px;
-    width: 90%;
-    border: 1px solid grey;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
-  }
-
-
-  #footer1 {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;      /* Padding on all sides */
-    padding-top: 30px;  /* Padding only on the top */
-    padding-right: 20px; /* Padding only on the right */
-    padding-bottom: 15px;
-
-  }
-
-  .item1 {
-    width: 120px;
-    text-align: center;
-    border: 1px solid black;
-    border-radius: 10px;
-  }
-
-  #reserve {
-    height: 30px;
-    width: 90px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: 28px;
-  }
-
-  .header12{
-    padding-top: 20px;
-    border: 1px solid black;
-    border-radius: 10px;
-    width: 100px;
-    text-align: center;
-  }
-
-  .datePicker {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    border: 1px solid black;
-    border-radius: 10px;
-    width: 200px;
-  }
-
-
+.datePicker {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 200px;
+}
