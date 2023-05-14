@@ -10,7 +10,9 @@ VALUES ('Aaron Aaronson', '604 555 5656', 'aaaa@gmail.com', '12345'),
 ('Queenie Mathers', '604 589 4563', 'quennie@hotmail.com', '76543'),
 ('Ching Shih', '604 985 1982', 'ching@yahoo.com', '65432'),
 ('Oscar Peterson', '604 333 9145', 'oscar@hotmail.com', '54321'),
-('Maya Angelou', '604 135 7344', 'maya@gmail.com', '43210');
+('Maya Angelou', '604 135 7344', 'maya@gmail.com', '43210'),
+('Count Dracula', '604 472 5663', 'dracula@hotmail.com', 'blood'),
+('Genghis Khan', '604 785 3255', 'khan@outlook.com', 'world');
 
 
 
