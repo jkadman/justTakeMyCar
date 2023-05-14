@@ -4,4 +4,12 @@ VALUES (1, '/pictures/car1.png', 'BMW', 'sedan', 'Madame Rouge', 'red', 340.50, 
 (3, '/pictures/car3.png', 'Ducati', 'motorcycle', 'Frogger', 'red', 68.10, 2020),
 (4, '/pictures/car4.png', 'Audi', 'hatchback', 'Mr. Nobody', 'white', 138.50, 2018),
 (5, '/pictures/car5.png', 'Jeep', 'jeep', 'Rebis', 'green', 95.99, 2014),
-(6, '/pictures/car6.png', 'Bentley', 'sedan', 'Bigcoin', 'blue', 184.99, 2019);
+(6, '/pictures/car6.png', 'Bentley', 'sedan', 'Bigcoin', 'blue', 184.99, 2019),
+(7, '/pictures/car7.png', 'Mazda', 'van', 'Drifter', 'white', 65.99, 2017),
+(8, '/pictures/car8.png', 'Mercedes', 'SUV', 'Magneto', 'grey', 156.50, 2015),
+(9, '/pictures/car9.png', 'Audi', 'convertable', 'Blue Lagoon', 'blue', 289.30, 2023),
+(10, '/pictures/car10.png', 'Ferrari', 'sports', 'Tomato', 'red', 165.20, 2022),
+(11, '/pictures/car11.png', 'Subaru', 'sedan', 'Quiz', 'blue', 52.30, 2016),
+(12, '/pictures/car12.png', 'Toyota', 'truck', 'Celsius', 'white', 45.60, 2019),
+(1, '/pictures/car13.png', 'Volksvagen', 'sedan', 'Void', 'black', 72.40, 2021),
+(2, '/pictures/car14.png', 'Porche', 'sport convertible', 'Trickster', 'white', 155.09, 2019);
