@@ -1,18 +1,35 @@
-import React from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import carData from "./data/carData";
-import useNavigation from './hooks/navigate';
+import useNavigation from "./hooks/navigate";
 import Reservepage from "./Reservepage";
-
+import { useNavigate } from "react-router-dom";
 
 export default function CarsAvailable() {
+  const navigate = useNavigate();
   const { navigateTo } = useNavigation();
+  const [cars, setCars] = useState([]);
+  const getCars = async () => {
+    try {
+      const response = await fetch("http://localhost:5001");
+      const jsonData = await response.json();
+      //console.log(jsonData);
+      setCars(jsonData);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getCars();
+  }, []);
+
   return (
     <div className="carsAvailable">
       <div className="availableTitle"> Cars Available now</div>
       <div className="availableCars">
         <div className="carItem">
-          <div className="carName">
-            {carData[0].year} {carData[0].make} {carData[0].name}
+          <div key={cars.year} className="carName">
+            {cars[0].year} {carData[0].make} {carData[0].name}
           </div>
           <div className="carImage">
             <img src={carData[0].image} alt="car1"></img>
@@ -21,7 +38,9 @@ export default function CarsAvailable() {
             <div>area</div>
             <div className="reserve">
               {" "}
-              <a className="Reserve" onClick={() => navigateTo('/Reserve')}>Reserve</a>
+              <a className="Reserve" onClick={() => navigateTo("/Reserve")}>
+                Reserve
+              </a>
             </div>
           </div>
         </div>
@@ -117,11 +136,12 @@ export default function CarsAvailable() {
         </div>
         <div className="seeMore">
           {" "}
-          <button className="seeMore" onClick={() => navigateTo('/Carsavailablemore')}>
-  See More
-</button>
-
-
+          <button
+            className="seeMore"
+            onClick={() => navigateTo("/Carsavailablemore")}
+          >
+            See More
+          </button>
         </div>
       </div>
     </div>

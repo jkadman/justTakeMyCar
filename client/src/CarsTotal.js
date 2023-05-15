@@ -1,7 +1,6 @@
 import React from "react";
 import carData from "./data/carData";
-import useNavigation from './hooks/navigate';
-
+import useNavigation from "./hooks/navigate";
 
 export default function CarsTotal() {
   const { navigateTo } = useNavigation();
@@ -116,10 +115,12 @@ export default function CarsTotal() {
         </div>
         <div className="seeMore">
           {" "}
-
-          <button className="seeMore" onClick={() => navigateTo('/Totalavailableseemore')}>
-  See More
-</button>
+          <button
+            className="seeMore"
+            onClick={() => navigateTo("/Totalavailableseemore")}
+          >
+            See More
+          </button>
         </div>
       </div>
     </div>
