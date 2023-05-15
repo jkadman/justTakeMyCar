@@ -33,3 +33,25 @@ flex-direction: row;
 .TotalCarsmore{
   background-color: #EBEDEF
 }
+
+.availableTitleSeemore{
+  text-align: center;
+  color: #4d4276;
+  font-size: 30px;
+  width: 700px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ebedef;
+  height: 150px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.carImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

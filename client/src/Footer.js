@@ -50,7 +50,7 @@ export default function Footer() {
               }}
             >
         <h2>Contact Us</h2>
-        <p> <h1> Founders:</h1>
+        <p> <h1 id='founders'> Founders:</h1>
           <h2> Archit: Archit@arch.com </h2>
           <h2> Ana: Ana@ana.com </h2>
           <h2> Jason: Jason@Jason.com</h2>
