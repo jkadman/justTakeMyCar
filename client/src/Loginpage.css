@@ -42,9 +42,7 @@ button {
   font-weight: bold;
 }
 
-button:hover {
-  background-color: #45a049;
-}
+
 
 .message {
   text-align: center;

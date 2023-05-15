@@ -52,10 +52,10 @@ input[type="email"] {
   cursor: pointer;
 }
 
-
+/*
 .buttons button:hover {
   background-color: #45a049;
-}
+} */
 
 
 .image-upload {
@@ -84,7 +84,7 @@ input[type="email"] {
 
 .submit-button button:hover {
   padding: 10px 20px;
-  background-color: #4CAF50;
+
   color: #fff;
   border: none;
   border-radius: 4px;

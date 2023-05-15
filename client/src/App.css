@@ -228,6 +228,10 @@ h1{
 
 }
 
+.message, .reportButton, .aboutUs {
+  cursor: pointer;
+}
+
 
 
 .footerSection {

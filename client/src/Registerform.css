@@ -76,10 +76,10 @@ form input[type="submit"] {
   text-shadow: 0 1px #68b25b;
 }
 
-form input[type="submit"]:hover {
+/* form input[type="submit"]:hover {
   background: rgba(148, 175, 101, 1);
   text-shadow: 0 1px 3px rgba(148, 175, 101, 0.7);
-}
+} */
 
 form label {
   position: absolute;

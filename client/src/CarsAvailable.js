@@ -3,14 +3,12 @@ import carData from "./data/carData";
 import useNavigation from './hooks/navigate';
 import Reservepage from "./Reservepage";
 
-
 export default function CarsAvailable() {
   const { navigateTo } = useNavigation();
   return (
     <div className="carsAvailable">
       <div className="availableTitle"> Cars Available now</div>
       <div className="availableCars">
-
         <div className="carItem">
           <div className="carName">
             {carData[0].year} {carData[0].make} {carData[0].name}
