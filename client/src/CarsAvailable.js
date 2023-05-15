@@ -3,7 +3,6 @@ import carData from "./data/carData";
 import useNavigation from './hooks/navigate';
 import Reservepage from "./Reservepage";
 
-
 export default function CarsAvailable() {
   const { navigateTo } = useNavigation();
   return (

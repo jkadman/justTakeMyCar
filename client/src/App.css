@@ -1,3 +1,5 @@
+
+
 .fullPage{
   height: 100%;
   width: 100%;
@@ -57,7 +59,7 @@ background-color:#EBEDEF  ;
 }
 
 .header{
-  height: 60px;
+  height: 100px;
   width: 100%;
   background-color: #EBEDEF;
   display: flex;
@@ -86,7 +88,7 @@ background-color:#EBEDEF  ;
 
 .availableCars, .registeredCars {
   height: 450px;
-  width: 80%;
+  width: 90%;
   margin: 0 auto; /* this will center the divs horizontally */
   display: flex;
   flex-wrap: wrap;
@@ -99,20 +101,32 @@ background-color:#EBEDEF  ;
 
 }
 
+h1{
+  color: #4D4276 ;
+}
+
 .title {
   flex-grow: 1;
   text-align: center;
 }
 
-.availableTitle, .totalTitle{
- text-align: center;
- color: #ff4411;
- font-size: 30px;
- font-family: 'Signika',
- sans-serif; padding-bottom:
- 10px;
- font-weight: bold;
+.availableTitle,
+.totalTitle {
+  text-align: center;
+  color: #4d4276;
+  font-size: 30px;
+  width: 700px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ebedef;
+  /* height: 150px; */
+
+  border-radius: 10px;
+  margin-top: 10px;
 }
+
 
 
 .headerSection{
@@ -159,7 +173,7 @@ background-color:#EBEDEF  ;
 .carItem {
   flex-basis: calc(25% - 10px);
   background-color: #f0f0f0;
-  border: 1px solid #999;
+  border: 1px solid #060606;
   /* text-align: center; */
   height: 200px;
   border-radius: 10px;
@@ -179,18 +193,22 @@ background-color:#EBEDEF  ;
 
 
 .carName{
-  text-decoration: underline;
+ text-shadow: #000;
+  height: 30px;
+  margin-top: 5px;
 }
 
 .carArea {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-end;
   height: auto;
   flex-basis: calc(25% - 10px);
   background-color: #f0f0f0;
-  border: 1px solid #999;
+
   width: 100%;
+  margin-bottom: 10px;
+  text-decoration: none;
 }
 
 .seeMore {
@@ -198,9 +216,10 @@ background-color:#EBEDEF  ;
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: center;
   text-align: center;
   padding: 10px 20px;
-  background-color: #4CAF50;
+  background-color: #4d4276;
   color: white;
   font-weight: bold;
   border-radius: 5px;
@@ -209,10 +228,19 @@ background-color:#EBEDEF  ;
 
 }
 
+.message, .reportButton, .aboutUs {
+  cursor: pointer;
+}
+
+
 
 .footerSection {
   margin: 10px;
   text-align: center;
+}
+
+#founders{
+  color: #000;
 }
 
 .socialMediaLinks {
@@ -257,14 +285,14 @@ background-color:#EBEDEF  ;
   margin: 10px;
   border-radius: 5px;
   cursor: pointer;
+  font-family: 'Jost', sans-serif;
 }
 
 .title{
   color: #ff4411;
   font-size: 17px;
-  font-family: 'Signika',
-  sans-serif; padding-bottom:
-  10px;
+  /* font-family: 'Jost', sans-serif; */
+  padding-bottom:10px;
 }
 
 .reportButton{
