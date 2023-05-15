@@ -30,14 +30,25 @@ export default function SignUpForm() {
        body: JSON.stringify(body)
       });
       navigate("/login")
-      
+
     } catch (err) {
       console.error(err.message);
     }
   }
 
   return (
-    <div style={{ width: '400px', height: '400px', border: '1px solid black', borderRadius: '10px', padding: '20px', margin: '0 auto' }}>
+    <div
+  id="form"
+  style={{
+    width: '400px',
+    height: '400px',
+    border: '1px solid black',
+    borderRadius: '10px',
+    padding: '20px',
+    margin: '0 auto',
+    backgroundColor: '#f1f1f1',
+  }}
+>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Full Name:</label>
         <input
