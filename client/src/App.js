@@ -1,6 +1,7 @@
 import CarsAvailableseemore from "./CarsAvailableseemore";
 import Header from "./Header";
 import { Route, Routes } from "react-router-dom";
+import { useCookies } from "react-cookie";
 import CarsAvailable from "./CarsAvailable";
 import CarsTotal from "./CarsTotal";
 import Footer from "./Footer";

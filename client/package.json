@@ -42,6 +42,7 @@
   "devDependencies": {
     "env": "^0.0.2",
     "nodemon": "^2.0.22",
+    "react-cookie": "^4.1.1",
     "react-router-dom": "^6.11.1"
   }
 }
