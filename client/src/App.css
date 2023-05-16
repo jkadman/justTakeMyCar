@@ -7,7 +7,7 @@
 }
 
 body{
-  background-image: url('../../planning/OC1Y8T0.jpg');
+  background-image: url('../../planning/purpleBackground.jpg');
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -20,23 +20,18 @@ body{
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Set a minimum height to make sure the footer stays at the bottom */
+  min-height: 100vh;
 
 }
 
 .component-container {
-  flex-grow: 1; /* Expand and fill the available vertical space */
-  padding: 20px; /* Adjust the padding to add spacing around the components */
+  flex-grow: 1;
+  padding: 20px;
 }
 
-/* Apply any additional styles to the components */
+
 .component-container > * {
-  margin-bottom: 20px; /* Add vertical spacing between the components */
-}
-
-/* Apply any styles to the footer */
-footer {
-  padding: 20px; /* Add padding to the footer for spacing */
+  margin-bottom: 20px;
 }
 
 
@@ -50,9 +45,7 @@ footer {
   align-items: center;
 }
 
-.availableCars{
-background-color:#EBEDEF  ;
-}
+
 
 .registeredCars{
   background-color: #EBEDEF
@@ -74,11 +67,12 @@ background-color:#EBEDEF  ;
   height: 100px;
   width: 95%;
   background-color: #EBEDEF;
-  border: 1px solid #999;
+
   display: flex;
   justify-content: space-evenly;
-  border-radius: 10px;
 
+  padding: 20px;
+  background-color: transparent;
 }
 
 .reserve a {
@@ -89,16 +83,16 @@ background-color:#EBEDEF  ;
 .availableCars, .registeredCars {
   height: 450px;
   width: 90%;
-  margin: 0 auto; /* this will center the divs horizontally */
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: baseline;
   padding: 10px;
   gap: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #9B59B6;
   border-radius: 10px;
-
+  background-color: #EBF5FB  ;
 }
 
 h1{
@@ -113,18 +107,19 @@ h1{
 .availableTitle,
 .totalTitle {
   text-align: center;
-  color: #4d4276;
+  color: #4A235A ;
   font-size: 30px;
-  width: 700px;
+  width: 350px;
   padding-bottom: 10px;
   font-weight: bold;
   margin-left: auto;
   margin-right: auto;
   background-color: #ebedef;
   /* height: 150px; */
-
+  background-color: transparent ;
   border-radius: 10px;
   margin-top: 10px;
+  background-color: transparent;
 }
 
 

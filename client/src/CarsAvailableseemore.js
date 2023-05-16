@@ -5,7 +5,7 @@ import './CarsAvailableseemore.css'
 export default function Totalavailableseemore() {
   return (
     <div>
-    <div className="availableTitle"> <h2>Cars available now </h2>
+    <div className="availableTitleSeemore"> <h2>Cars available now </h2>
     <p> The cars listed here have been set to available by their owners</p>
     </div>
     <div className="totalSeemore">
