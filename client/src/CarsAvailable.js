@@ -23,11 +23,34 @@ export default function CarsAvailable() {
     getCars();
   }, []);
 
+  const carList = cars.map((car) => {
+    return (
+      <div key={car.id} className="carItem">
+        <div className="carName">
+          {car.year} {car.make} {car.name}
+        </div>
+        <div className="carImage">
+          <img src={car.car_photo} alt="car1"></img>
+        </div>
+        <div className="carArea">
+          <div>area</div>
+          <div className="reserve">
+            {" "}
+            <a className="Reserve" onClick={() => navigateTo("/Reserve")}>
+              Reserve
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  });
+
   return (
     <div className="carsAvailable">
       <div className="availableTitle"> Cars Available now</div>
       <div className="availableCars">
-        <div className="carItem">
+        {carList}
+        {/* <div className="carItem">
           <div key={cars.year} className="carName">
             {cars[0].year} {carData[0].make} {carData[0].name}
           </div>
@@ -43,11 +66,9 @@ export default function CarsAvailable() {
               </a>
             </div>
           </div>
-        </div>
-        <div className="carItem">
-          <div className="carName">
-            {carData[1].year} {carData[1].make} {carData[1].name}
-          </div>
+        </div> */}
+        {/* <div className="carItem">
+          <div className="carName"></div>
           <div className="carImage">
             <img src={carData[1].image} alt="car2"></img>
           </div>
@@ -58,8 +79,8 @@ export default function CarsAvailable() {
               <a href="#">Reserve</a>
             </div>
           </div>
-        </div>
-        <div className="carItem">
+        </div> */}
+        {/* <div className="carItem">
           <div className="carName">
             {carData[2].year} {carData[2].make} {carData[2].name}
           </div>
@@ -133,7 +154,7 @@ export default function CarsAvailable() {
               <a href="#">Reserve</a>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="seeMore">
           {" "}
           <button

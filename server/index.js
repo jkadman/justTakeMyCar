@@ -6,6 +6,7 @@ const pool = require("./src/db/db");
 // middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.static("public"));
 
 // create a new user
 app.post("/register", async (req, res) => {
