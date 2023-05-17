@@ -9,5 +9,6 @@ CREATE TABLE cars (
   name VARCHAR(255) NOT NULL,
   colour VARCHAR(255) NOT NULL,
   price_per_day DECIMAL NOT NULL,
-  year integer NOT NULL
+  year integer NOT NULL,
+  street VARCHAR(255)
 );
