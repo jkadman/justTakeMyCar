@@ -14,7 +14,7 @@ import Totalavailableseemore from "./Totalavailableseemore";
 import Registercar from "./Registercar";
 import Registerform from "./Registerform";
 import Reservepage from "./Reservepage";
-
+import Userpage from "./Userpage";
 
 function App() {
   return (
@@ -42,6 +42,7 @@ function App() {
             path="/Carsavailablemore"
             element={<CarsAvailableseemore />}
           />
+          <Route exact path="/Userpage" element={<Userpage />} />
           <Route exact path="/login" element={<Loginpage />} />
           <Route exact path="/register" element={<Registerform />} />
           <Route exact path="/stolen" element={<StolenCar />} />
@@ -57,4 +58,3 @@ function App() {
 }
 
 export default App;
-
