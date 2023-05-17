@@ -2,11 +2,21 @@ import React, { useState } from "react";
 import "./Reservepage.css";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
+import { useLocation } from "react-router-dom";
 
 export default function Reservepage() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
+
+  const location = useLocation();
+
+  if (location.state && location.state.car ) {
+
+
+
+  const car = location.state.car;
+
 
   const handleReserveClick = () => {
     setShowPopup(true);
@@ -19,18 +29,21 @@ export default function Reservepage() {
   return (
     <div id="container1">
       <div id="header1">
-        <div className="header12">Car name</div>
-        <div className="header123">Username</div>
+        <div className="header12">{car.make}</div>
+        <div className="header123">{car.name}</div>
       </div>
 
-      <div id="image"></div>
+      <div id="image">
+  <img src={car.car_photo} alt="car"></img>
+</div>
+
 
       <div id="footer1">
         <div className="item1">
-          <h4>Location</h4>
+          <h4>{car.street}</h4>
         </div>
         <div className="item1">
-          <h4>Price</h4>
+          <h4>{car.price_per_day}</h4>
         </div>
         <div className="datePicker">
           <DatePicker
@@ -74,4 +87,9 @@ export default function Reservepage() {
       )}
     </div>
   );
+
+  } else {
+    return(
+    <div> NO car found go back</div>
+  )}
 }

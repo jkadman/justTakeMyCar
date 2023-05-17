@@ -18,6 +18,10 @@ export default function CarsAvailable() {
     }
   };
 
+  const handleReserveClick = (car) => {
+    navigate("/Reserve", { state:{car} });
+  };
+
   useEffect(() => {
     getCars();
   }, []);
@@ -34,9 +38,9 @@ export default function CarsAvailable() {
             <img src={car.car_photo} alt="car1"></img>
           </div>
           <div className="carArea">
-            <div>area</div>
+            <div>{car.street}</div>
             <div className="reserve">
-              <a className="Reserve" onClick={() => navigateTo("/Reserve")}>
+            <a className="Reserve" onClick={() => handleReserveClick(car)}>
                 Reserve
               </a>
             </div>
@@ -54,7 +58,7 @@ export default function CarsAvailable() {
         <div className="seeMore">
           <button
             className="seeMore"
-            onClick={() => navigateTo("/Totalavailableseemore")}
+            onClick={() => navigate("/Totalavailableseemore")}
           >
             See More
           </button>
