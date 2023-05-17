@@ -4,15 +4,16 @@ import aboutPageBackground from "./data/pictures/aboutPageBackground.png";
 export default function About() {
   return (
     <div className="aboutpage">
-      <div className="about">About Us</div>
       <div
         className="aboutContent"
         style={{
           backgroundImage: `url(${aboutPageBackground})`,
           backgroundRepeat: "no-repeat",
+          backgroundPosition: "center"
         }}
       >
         <p>
+        <div className="about">About Us</div>
           We are a car sharing company located in Vancouver B.C. We bring
           together car owners with customers in need of a vehicle with our easy
           and convenient app.

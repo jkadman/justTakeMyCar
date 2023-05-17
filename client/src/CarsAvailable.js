@@ -25,7 +25,11 @@ export default function CarsAvailable() {
   const carListA = cars.map((car, index) => {
     return (
       index < 7 && (
-        <div key={car.id} className="carItem">
+        <div
+          onClick={() => console.log(car.user_id)}
+          key={car.id}
+          className="carItem"
+        >
           <div className="carName">
             {car.year} {car.make} {car.name}
           </div>

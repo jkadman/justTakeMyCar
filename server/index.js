@@ -70,10 +70,21 @@ app.post("/Registercar", async (req, res) => {
       colour,
       price_per_day,
       year,
+      street,
     } = req.body;
     const newUser = await pool.query(
       "INSERT INTO cars (user_id, car_photo, make, type, name, colour, price_per_day, year) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING * ",
-      [user_id, car_photo, make, type, name, colour, price_per_day, year]
+      [
+        user_id,
+        car_photo,
+        make,
+        type,
+        name,
+        colour,
+        price_per_day,
+        year,
+        street,
+      ]
     );
     res.status(200).json({ message: "Registration successful" }); // Send a success response
   } catch (err) {
