@@ -12,6 +12,7 @@ export default function RegisterCar() {
     colour: "",
     price_per_day: "",
     year: "",
+    street: ""
   });
 
   console.log(formData);
@@ -21,7 +22,7 @@ export default function RegisterCar() {
     const { name, value } = event.target;
     setFormData((prevState) => ({
       ...prevState,
-      [name]: value,
+      [name]: value
     }));
   };
 
@@ -37,7 +38,9 @@ export default function RegisterCar() {
         colour,
         price_per_day,
         year,
+        street
       } = formData;
+
       const body = {
         user_id,
         car_photo,
@@ -47,11 +50,12 @@ export default function RegisterCar() {
         colour,
         price_per_day,
         year,
+        street
       };
       const response = await fetch("http://localhost:5001/Registercar", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
+        body: JSON.stringify(body)
       });
       navigate("/");
     } catch (err) {
@@ -76,7 +80,7 @@ export default function RegisterCar() {
         <input
           type="text"
           id="id"
-          name="id"
+          name="user_id"
           placeholder="Enter your id"
           value={formData.user_id}
           onChange={handleInputChange}
@@ -101,18 +105,18 @@ export default function RegisterCar() {
           required
         >
           <option value="">Select Car Make</option>
-          <option value="BMW'">BMW</option>
+          <option value="BMW">BMW</option>
           <option value="Audi">Audi</option>
           <option value="Ducati">Ducati</option>
-          <option value="Jeep"> Jeep</option>
+          <option value="Jeep">Jeep</option>
           <option value="Bentley">Bentley</option>
-          <option value="Other">Mazda</option>
-          <option value="Other">Ferrari</option>
-          <option value="Other">Mercedes</option>
-          <option value="Other">Subaru</option>
-          <option value="Other">Toyota</option>
-          <option value="Other">Volksvagen</option>
-          <option value="Other">Porche</option>
+          <option value="Mazda">Mazda</option>
+          <option value="Ferrari">Ferrari</option>
+          <option value="Mercedes">Mercedes</option>
+          <option value="Subaru">Subaru</option>
+          <option value="Toyota">Toyota</option>
+          <option value="Volksvagen">Volksvagen</option>
+          <option value="Porche">Porche</option>
         </select>
 
         <label htmlFor="type">Type:</label>
@@ -124,12 +128,12 @@ export default function RegisterCar() {
           required
         >
           <option value="">Select Type</option>
-          <option value="sedan">sedan </option>
+          <option value="sedan">sedan</option>
           <option value="truck">truck</option>
           <option value="SUV">SUV</option>
           <option value="van">van</option>
           <option value="jeep">jeep</option>
-          <option value="convertable">convertable</option>
+          <option value="convertible">convertible</option>
           <option value="motorcycle">motorcycle</option>
           <option value="sports">sports</option>
           <option value="hatchback">hatchback</option>
@@ -148,7 +152,7 @@ export default function RegisterCar() {
 
         <label htmlFor="colour">Colour:</label>
         <select
-          id="colourr"
+          id="colour"
           name="colour"
           value={formData.colour}
           onChange={handleInputChange}
@@ -186,6 +190,17 @@ export default function RegisterCar() {
           required
         />
 
+        <label htmlFor="street">What street is your car parked?</label>
+        <input
+          type="text"
+          id="street"
+          name="street"
+          placeholder="Enter the street"
+          value={formData.street}
+          onChange={handleInputChange}
+          required
+        />
+
         <div className="image-upload">
           <label htmlFor="image">Upload Image:</label>
           <input type="file" id="image" name="image" />
@@ -198,3 +213,4 @@ export default function RegisterCar() {
     </div>
   );
 }
+
