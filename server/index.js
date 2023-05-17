@@ -8,6 +8,16 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
+const getUserByEmail = async (email) => {
+  const user = `SELECT * FROM users WHERE users.email = $1`;
+  const value = [`${email}`];
+  return pool
+  .query(user, value)
+  .then((result) => {
+    return result.rows[0]
+  })
+}
+
 // create a new user
 app.post("/register", async (req, res) => {
   try {
@@ -23,6 +33,29 @@ app.post("/register", async (req, res) => {
     res.status(500).json({ message: "Registration failed" }); // Send an error response
   }
 });
+
+//user login
+app.get("/login", async (req, res) => {
+  
+  try {
+    const { email, password } = req.body;
+    const query = `SELECT * FROM users WHERE users.email = $1`;
+    const value = [`${email}`];
+    const dbResponse = await pool.query(query, value);
+    // const rows = dbResponse.rows[0].password;
+    const userPass = dbResponse.rows[0].password;
+    const userId = dbResponse.rows[0].id 
+    if (userPass === password) {
+      res.json({userId})
+    } else {
+      res.send("Error: your password doesn't match our records")
+    }
+
+
+  } catch (err) {
+    console.log(err.message);
+  }
+})
 
 // create a new car
 app.post("/Registercar", async (req, res) => {
