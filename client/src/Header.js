@@ -1,4 +1,5 @@
 import useNavigation from './hooks/navigate';
+import { Navigate } from "react-router-dom";
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@1,900&display=swap');
 </style>
@@ -16,6 +17,13 @@ export default function Header() {
   //   setIsLoggedIn(false);
   // };
 
+  
+    const handleLogout = () => {
+      localStorage.removeItem('token');
+      window.location.href = '/login';
+    }
+  
+
 
   return (
     <div className="parentDiv">
@@ -32,6 +40,7 @@ export default function Header() {
         ) : ( */}
           <>
             <button className="loginButton" onClick={() => navigateTo('/login')}>Login</button>
+            <button className="loginButton" onClick={handleLogout}>Logout</button>
             <button className="registerButton" onClick={() => navigateTo('/register')}>Register</button>
           </>
         {/* )} */}
