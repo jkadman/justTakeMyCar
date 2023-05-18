@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './Loginpage.css';
 
 
@@ -9,16 +10,32 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try { 
+    const response = await axios.post('/login', { email, password });
+    const token = response.data.token;
+
+    localStorage.setItem('token', token)
+
+    window.location.href = '/Userpage';
+  
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <div className="container">
       <h2>Login</h2>
-      <form>
+      <form onSubmit={handleLogin}>
         <label htmlFor="username">Username:</label>
         <input 
         type="text" 
         id="username" 
         name="username" 
-        placeholder="Enter your username" 
+        placeholder="Enter your email" 
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         />
