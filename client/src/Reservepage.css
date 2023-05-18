@@ -26,7 +26,17 @@
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+#image img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
 
 #footer1 {
   width: 100%;

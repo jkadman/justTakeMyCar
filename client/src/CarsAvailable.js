@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function CarsAvailable() {
   const navigate = useNavigate();
-  const { navigateTo } = useNavigation();
+  // const { navigateTo } = useNavigation();
   const [cars, setCars] = useState([]);
   const getCars = async () => {
     try {
@@ -17,6 +17,11 @@ export default function CarsAvailable() {
       console.error(error.message);
     }
   };
+  const handleReserveClick = (car) => {
+    navigate("/Reserve", { state:{car} });
+  };
+  // location.state.car
+
 
   useEffect(() => {
     getCars();
@@ -26,7 +31,7 @@ export default function CarsAvailable() {
     return (
       index < 7 && (
         <div
-          onClick={() => console.log(car.user_id)}
+          onClick={() => console.log(car)}
           key={car.id}
           className="carItem"
         >
@@ -37,11 +42,12 @@ export default function CarsAvailable() {
             <img src={car.car_photo} alt="car1"></img>
           </div>
           <div className="carArea">
-            <div>area</div>
+            <div>{car.street}</div>
             <div className="reserve">
-              <a className="Reserve" onClick={() => navigateTo("/Reserve")}>
+              <a className="Reserve" onClick={() => handleReserveClick(car)}>
                 Reserve
               </a>
+
             </div>
           </div>
         </div>
@@ -57,7 +63,7 @@ export default function CarsAvailable() {
         <div className="seeMore">
           <button
             className="seeMore"
-            onClick={() => navigateTo("/Carsavailablemore")}
+            onClick={() => navigate("/Carsavailablemore")}
           >
             See More
           </button>

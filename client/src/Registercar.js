@@ -86,16 +86,6 @@ export default function RegisterCar() {
           onChange={handleInputChange}
         />
 
-        <label htmlFor="car_photo">Car photo:</label>
-        <input
-          type="text"
-          id="car_photo"
-          name="car_photo"
-          placeholder="Enter your car_photo"
-          value={formData.car_photo}
-          onChange={handleInputChange}
-          required
-        />
         <label htmlFor="make">Car Make:</label>
         <select
           id="make"
@@ -203,8 +193,27 @@ export default function RegisterCar() {
 
         <div className="image-upload">
           <label htmlFor="image">Upload Image:</label>
-          <input type="file" id="image" name="image" />
+          <input
+          type="text"
+          id="car_photo"
+          name="car_photo"
+          placeholder="Upload photo of car"
+          value={formData.car_photo}
+          onChange={handleInputChange}
+          required
+        />
         </div>
+
+        <label htmlFor="car_photo">Car photo:</label>
+        <input
+          type="text"
+          id="car_photo"
+          name="car_photo"
+          placeholder="Upload photo of car"
+          value={formData.car_photo}
+          onChange={handleInputChange}
+          required
+        />
 
         <div className="submit-button">
           <button type="submit">Submit</button>

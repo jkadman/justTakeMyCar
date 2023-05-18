@@ -118,7 +118,7 @@ app.post("/Registercar", async (req, res) => {
       street,
     } = req.body;
     const newUser = await pool.query(
-      "INSERT INTO cars (user_id, car_photo, make, type, name, colour, price_per_day, year) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING * ",
+      "INSERT INTO cars (user_id, car_photo, make, type, name, colour, price_per_day, year,street) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING * ",
       [
         user_id,
         car_photo,
