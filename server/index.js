@@ -1,7 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const jwt = require("jsonwebtoken");
 const pool = require("./src/db/db");
+const crypto = require("crypto")
 
 // middleware
 app.use(cors());
@@ -17,6 +19,15 @@ const getUserByEmail = async (email) => {
     return result.rows[0]
   })
 }
+
+const generateSecretKey = () => {
+  const secretLength = 64;
+  return crypto.randomBytes(secretLength).toString("hex");
+};
+
+const secretKey = generateSecretKey();
+// const secretKey = "123456"
+// console.log(secretKey)
 
 // create a new user
 app.post("/register", async (req, res) => {
@@ -35,7 +46,7 @@ app.post("/register", async (req, res) => {
 });
 
 //user login
-app.get("/login", async (req, res) => {
+app.post("/login", async (req, res) => {
   
   try {
     const { email, password } = req.body;
@@ -46,16 +57,50 @@ app.get("/login", async (req, res) => {
     const userPass = dbResponse.rows[0].password;
     const userId = dbResponse.rows[0].id 
     if (userPass === password) {
-      res.json({userId})
+      const token = jwt.sign({ userId }, secretKey);
+      console.log('secretKey', secretKey)
+      console.log('logintoken', token)
+      res.json({ token })
     } else {
       res.send("Error: your password doesn't match our records")
     }
-
-
   } catch (err) {
     console.log(err.message);
   }
 })
+
+//access user page
+app.get("/Userpage", authenticateToken, (req, res) => {
+  const userId = req.user.userId;
+  
+  res.json({ message: "Protected route accessed successfully", userId});
+});
+
+
+
+// Middleware to Authenticate JWT
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+  console.log('token', token)
+
+if (token == null) {
+  return res.sendStatus(401);
+}
+
+
+  jwt.verify(token, secretKey, (err, decodedToken) => {
+    if (err) {
+      console.error(err);
+      return res.sendStatus(403);
+    }
+
+    req.user = decodedToken
+    next();
+  });
+}
+
+
 
 // create a new car
 app.post("/Registercar", async (req, res) => {
