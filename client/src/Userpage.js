@@ -7,6 +7,7 @@ import './Userpage.css';
 export default function Userpage() {
   const [userData, setUserData] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuth, setIsAuth] = useState(true);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -17,16 +18,23 @@ export default function Userpage() {
             Authorization: `Bearer ${token}`,
           },
         });
-        setUserData(response.data);
-        console.log('responseData', response.data)
+        setUserData(response.data.user);
+        // example of how to access user data
+        console.log('userdata', response.data.user.user.id)
+        setIsAuth(false);
       } catch (error) {
         console.error(error);
         setIsAuthenticated(false);
+        setIsAuth(false);
       }
     };
 
     fetchUserData();
   }, []);
+
+  if (isAuth) {
+    return <p>Loading...</p>
+  }
 
   if (!isAuthenticated) {
     return <Navigate replace to ="/login" />;

@@ -55,11 +55,13 @@ app.post("/login", async (req, res) => {
     const dbResponse = await pool.query(query, value);
     // const rows = dbResponse.rows[0].password;
     const userPass = dbResponse.rows[0].password;
-    const userId = dbResponse.rows[0].id 
+    const user = dbResponse.rows[0]
     if (userPass === password) {
-      const token = jwt.sign({ userId }, secretKey);
+      const token = jwt.sign({ user }, secretKey);
       console.log('secretKey', secretKey)
       console.log('logintoken', token)
+      console.log('userId', user)
+
       res.json({ token })
     } else {
       res.send("Error: your password doesn't match our records")
@@ -71,9 +73,9 @@ app.post("/login", async (req, res) => {
 
 //access user page
 app.get("/Userpage", authenticateToken, (req, res) => {
-  const userId = req.user.userId;
+  const user = req.user;
   
-  res.json({ message: "Protected route accessed successfully", userId});
+  res.json({ message: "Protected route accessed successfully", user});
 });
 
 
@@ -118,7 +120,7 @@ app.post("/Registercar", async (req, res) => {
       street,
     } = req.body;
     const newUser = await pool.query(
-      "INSERT INTO cars (user_id, car_photo, make, type, name, colour, price_per_day, year,street) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING * ",
+      "INSERT INTO cars (user_id, car_photo, make, type, name, colour, price_per_day, year) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING * ",
       [
         user_id,
         car_photo,
