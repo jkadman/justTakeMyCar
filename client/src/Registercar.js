@@ -17,11 +17,11 @@ export default function RegisterCar() {
   console.log('RC', userData)
   // const userId = userData.user.id
   // console.log('userId', userId)
-  // const userId = Object.entries(userData?.user?.id)
-  const userId = '14'
+  const userId = userData?.user?.id
+  console.log('userId', userId)
+  // const userId = '14'
 
   const [formData, setFormData] = useState({
-    user_id: "14",
     car_photo: "",
     make: "",
     type: "",
