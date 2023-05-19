@@ -10,12 +10,34 @@ export default function Reservepage() {
   const [showPopup, setShowPopup] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
 
+
   const location = useLocation();
+
 
   if (location.state && location.state.car) {
     const car = location.state.car;
 
     const handleReserveClick = () => {
+      const emailSubject = "Car Reservation";
+      const emailBody = `
+        Make: ${car.make}
+        Name: ${car.name}
+        Street: ${car.street}
+        Price Per Day: ${car.price_per_day}
+        Start Date: ${startDate ? startDate.toDateString() : ""}
+        End Date: ${endDate ? endDate.toDateString() : ""}
+      `;
+
+      const mailtoUrl = `mailto:${car.email}?subject=${encodeURIComponent(
+        emailSubject
+      )}&body=${encodeURIComponent(emailBody)}`;
+
+
+
+
+
+      window.location.href = mailtoUrl;
+
       setShowPopup(true);
     };
 
