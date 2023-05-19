@@ -13,8 +13,37 @@ export default function Userpage() {
   }
   
   // example of how to structure asynchronous variables
-  const userEmail = userData?.user?.email
+  const userEmail = userData?.user?.email;
+  const userId = userData?.user?.id;
  
+  useEffect(() => {
+    if (userData) {
+      fetchUserCars();
+    }
+  }, [userData])
+
+  const fetchUserCars = async () => {
+    try {
+      const token = localStorage.getItem('token')
+      const user = userId
+      const response = await axios.get('/userCars', {
+        
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'X-User-ID': userId
+        },
+        
+      });
+      console.log('response', response.data)
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  const fetchUserReso = async () => {
+
+  }
+
 
   return (
     <div id='body'>
