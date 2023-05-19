@@ -19,6 +19,7 @@ export default function RegisterCar() {
   const userId = userData?.user?.id
 
   const [formData, setFormData] = useState({
+    user_id: '',
     car_photo: "",
     make: "",
     type: "",
@@ -54,7 +55,7 @@ export default function RegisterCar() {
       } = formData;
 
       const body = {
-        user_id,
+        user_id: userId,
         car_photo,
         make,
         type,
