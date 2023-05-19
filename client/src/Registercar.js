@@ -15,14 +15,8 @@ export default function RegisterCar() {
 
   const navigate = useNavigate();
 
-  
-
-  console.log('RC', userData)
-  // const userId = userData.user.id
-  // console.log('userId', userId)
+  // populating the userId with the userId from the database once the async request is loaded
   const userId = userData?.user?.id
-  console.log('userId', userId)
-  // const userId = '14'
 
   const [formData, setFormData] = useState({
     car_photo: "",
@@ -35,8 +29,6 @@ export default function RegisterCar() {
     street: ""
   });
 
-  // console.log(formData);
-  // const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;

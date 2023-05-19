@@ -12,11 +12,7 @@ export default function Userpage() {
     setUserData(data)
   }
   
- 
-
-  console.log(userData.user)
-  
-  console.log('userdata', userData?.user?.id || "Not Loaded Yet")
+  // example of how to structure asynchronous variables
   const userEmail = userData?.user?.email
  
 
