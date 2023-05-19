@@ -7,6 +7,7 @@ import FetchData from './hooks/fetchdata';
 export default function Userpage() {
   // attempt to display loading while the data from the page is rendering
   const [userData, setUserData] = useState({});
+  const [userCars, setUserCars] = useState([]);
 
   const handleUserData = (data) => {
     setUserData(data)
@@ -34,6 +35,7 @@ export default function Userpage() {
         },
         
       });
+      setUserCars(response.data);
       console.log('response', response.data)
     } catch (err) {
       console.error(err);
@@ -81,25 +83,18 @@ export default function Userpage() {
 
 
 
-        <h2>My cars</h2>
-        <div id='CarCon'>
-  <div class='ownedcars'>
-    <div className='rentedName'> car name</div>
-    <div className='rentedImg'> img goes here</div>
-    <div className='rentedfooter'> Reserve </div>
-  </div>
+  <h2>My cars</h2>
+    <div id='CarCon'>
+        {userCars.map((car) => (
+          <div key={car.id} className='myCars'>
+            <div class='ownedcars'>
+            <div className='rentedName'> {car.name}</div>
+            <div className='rentedImg'> img goes here</div>
+            <div className='rentedfooter'> Reserve </div>
+    </div>
+        </div>
+        ))}
 
-  <div class='ownedcars'>
-    <div className='rentedName'> car name</div>
-    <div className='rentedImg'> img goes here</div>
-    <div className='rentedfooter'> Reserve </div>
-  </div>
-
-  <div class='ownedcars'>
-    <div className='rentedName'> car name</div>
-    <div className='rentedImg'> img goes here</div>
-    <div className='rentedfooter'> Reserve </div>
-  </div>
 </div>
     </div>
   );
