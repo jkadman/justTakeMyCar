@@ -1,8 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import "./Registercar.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 
 export default function RegisterCar() {
+
+  // const [userData, setUserData] = useState(null);
+  // const [isAuthenticated, setIsAuthenticated] = useState(true);
+  // const [isAuth, setIsAuth] = useState(true);
+
+  
+
+  // if (isAuth) {
+  //   return <p>Loading...</p>
+  // }
+
+  // if (!isAuthenticated) {
+  //   return <Navigate replace to ="/login" />;
+  // }
+
+
+
   const [formData, setFormData] = useState({
     user_id: "13",
     car_photo: "",
@@ -16,7 +34,7 @@ export default function RegisterCar() {
   });
 
   console.log(formData);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -57,7 +75,6 @@ export default function RegisterCar() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
       });
-      navigate("/");
     } catch (err) {
       console.error(err.message);
     }

@@ -2,46 +2,23 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
 import './Userpage.css';
-
+import FetchData from './hooks/fetchdata';
 
 export default function Userpage() {
   const [userData, setUserData] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
-  const [isAuth, setIsAuth] = useState(true);
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        const response = await axios.get('/Userpage', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        setUserData(response.data.user);
-        // example of how to access user data
-        console.log('userdata', response.data.user.user.id)
-        setIsAuth(false);
-      } catch (error) {
-        console.error(error);
-        setIsAuthenticated(false);
-        setIsAuth(false);
-      }
-    };
-
-    fetchUserData();
-  }, []);
-
-  if (isAuth) {
-    return <p>Loading...</p>
+  const handleUserData = (data) => {
+    setUserData(data);
   }
 
-  if (!isAuthenticated) {
-    return <Navigate replace to ="/login" />;
-  }
+  // FetchData();
+  console.log('userpagedata', userData.user.email)
+
+  // const {email} = userData
 
   return (
     <div id='body'>
+      <FetchData onDataReceived={handleUserData} />
       {userData ? (
         <div id='user'>
         <h2>User Name</h2>
@@ -55,7 +32,7 @@ export default function Userpage() {
   <h2>Rented Cars</h2>
 <div id='rentedCon'>
   <div class='rentedcars'>
-    <div className='rentedName'> car name</div>
+    <div className='rentedName'> {userData.user.email} </div>
     <div className='rentedImg'> img goes here</div>
     <div className='rentedfooter'> Reserve </div>
   </div>
