@@ -5,16 +5,20 @@ import './Userpage.css';
 import FetchData from './hooks/fetchdata';
 
 export default function Userpage() {
-  const [userData, setUserData] = useState(null);
+  // attempt to display loading while the data from the page is rendering
+  const [userData, setUserData] = useState({});
 
   const handleUserData = (data) => {
-    setUserData(data);
+    setUserData(data)
   }
+  
+ 
 
-  // FetchData();
-  console.log('userpagedata', userData.user.email)
-
-  // const {email} = userData
+  console.log(userData.user)
+  
+  console.log('userdata', userData?.user?.id || "Not Loaded Yet")
+  const userEmail = userData?.user?.email
+ 
 
   return (
     <div id='body'>
@@ -32,7 +36,7 @@ export default function Userpage() {
   <h2>Rented Cars</h2>
 <div id='rentedCon'>
   <div class='rentedcars'>
-    <div className='rentedName'> {userData.user.email} </div>
+    <div className='rentedName'> {userEmail} </div>
     <div className='rentedImg'> img goes here</div>
     <div className='rentedfooter'> Reserve </div>
   </div>

@@ -2,27 +2,24 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import "./Registercar.css";
 import { useNavigate, Navigate } from "react-router-dom";
+import FetchData from "./hooks/fetchdata";
 
 export default function RegisterCar() {
 
-  // const [userData, setUserData] = useState(null);
-  // const [isAuthenticated, setIsAuthenticated] = useState(true);
-  // const [isAuth, setIsAuth] = useState(true);
+  const [userData, setUserData] = useState(null);
+
+  const handleUserData = (data) => {
+    setUserData(data);
+  }
 
   
 
-  // if (isAuth) {
-  //   return <p>Loading...</p>
-  // }
-
-  // if (!isAuthenticated) {
-  //   return <Navigate replace to ="/login" />;
-  // }
-
-
+  console.log('RC', userData)
+  // const userId = userData.user.id
+  // console.log('userId', userId)
+  const userId = userData?.user?.id
 
   const [formData, setFormData] = useState({
-    user_id: "13",
     car_photo: "",
     make: "",
     type: "",
@@ -33,7 +30,7 @@ export default function RegisterCar() {
     street: ""
   });
 
-  console.log(formData);
+  // console.log(formData);
   // const navigate = useNavigate();
 
   const handleInputChange = (event) => {
@@ -91,6 +88,7 @@ export default function RegisterCar() {
 
   return (
     <div className="container">
+      <FetchData onDataReceived={handleUserData} />
       <h2>Register your Vehicle</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="user_id">User ID:</label>
@@ -99,7 +97,7 @@ export default function RegisterCar() {
           id="id"
           name="user_id"
           placeholder="Enter your id"
-          value={formData.user_id}
+          value={userId ?? ''}
           onChange={handleInputChange}
         />
 
