@@ -4,6 +4,7 @@ import "./Registercar.css";
 import { useNavigate, Navigate } from "react-router-dom";
 import FetchData from "./hooks/fetchdata";
 
+
 export default function RegisterCar() {
 
   const [userData, setUserData] = useState(null);
@@ -11,6 +12,8 @@ export default function RegisterCar() {
   const handleUserData = (data) => {
     setUserData(data);
   }
+
+  const navigate = useNavigate();
 
   
 
@@ -74,6 +77,7 @@ export default function RegisterCar() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
       });
+      navigate('/Userpage')
     } catch (err) {
       console.error(err.message);
     }
