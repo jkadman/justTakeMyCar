@@ -119,6 +119,7 @@ app.post("/Registercar", async (req, res) => {
       year,
       street,
     } = req.body;
+    console.log('reqUI', req.body)
     const newUser = await pool.query(
       "INSERT INTO cars (user_id, car_photo, make, type, name, colour, price_per_day, year, street) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING * ",
       [
@@ -148,6 +149,23 @@ app.get("/", async (req, res) => {
   } catch (error) {
     console.error(error.message);
   }
+});
+
+// get user cars
+app.get("/userCars", async (req, res) => {
+  const userId = req.headers['x-user-id'];
+  const query = "SELECT * FROM cars WHERE user_id = $1";
+  const values = [userId];
+
+  pool.query(query, values)
+  .then((result) => {
+    const cars = result.rows
+    res.json(cars);
+  })
+  .catch((err) => {
+    console.log(err)
+  });
+
 });
 
 app.listen(5001, () => {
