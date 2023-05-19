@@ -26,6 +26,18 @@ export default function RegisterCar() {
     }));
   };
 
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const dataUrl = reader.result;
+        setFormData({ ...formData, car_photo: dataUrl });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent form submission (for demo purposes)
     try {
@@ -191,20 +203,20 @@ export default function RegisterCar() {
           required
         />
 
-        <div className="image-upload">
-          <label htmlFor="image">Upload Image:</label>
-          <input
-          type="text"
-          id="car_photo"
-          name="car_photo"
-          placeholder="Upload photo of car"
-          value={formData.car_photo}
-          onChange={handleInputChange}
-          required
-        />
-        </div>
+<div className="image-upload">
+  <label htmlFor="image">Upload Image:</label>
+  <input
+    type="file"
+    id="car_photo"
+    name="car_photo"
+    accept="image/*"
+    onChange={handleFileChange}
+    required
+  />
+</div>
 
-        <label htmlFor="car_photo">Car photo:</label>
+
+        {/* <label htmlFor="car_photo">Car photo:</label>
         <input
           type="text"
           id="car_photo"
@@ -213,7 +225,7 @@ export default function RegisterCar() {
           value={formData.car_photo}
           onChange={handleInputChange}
           required
-        />
+        /> */}
 
         <div className="submit-button">
           <button type="submit">Submit</button>
