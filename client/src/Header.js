@@ -1,32 +1,50 @@
 import useNavigation from './hooks/navigate';
+import { useState } from 'react';
 import { Navigate } from "react-router-dom";
+import FetchData from './hooks/fetchdata';
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@1,900&display=swap');
 </style>
 
 export default function Header() {
+  const [userData, setUserData] = useState(null);
+
   // connects to link navigation hook
   const { navigateTo } = useNavigation();
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // const handleLogin = () => {
-  //   setIsLoggedIn(true);
-  // };
-
-  // const handleLogout = () => {
-  //   setIsLoggedIn(false);
-  // };
-
   
-    const handleLogout = () => {
-      localStorage.removeItem('token');
-      window.location.href = '/login';
+  const handleUserData = (data) => {
+    setUserData(data);
+  }
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    window.location.href = '/login';
+  }
+  
+  const userId = userData?.user?.id
+  console.log('headerUD', userData?.user?.id)
+
+  const changeLogin = () => {
+    if (userId != null) {
+      return (
+        <>
+        <button className="loginButton" onClick={handleLogout}>Logout</button>
+        <button className="registerButton" onClick={() => navigateTo('/Userpage')}>Userpage</button>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <button className="loginButton" onClick={() => navigateTo('/login')}>Login</button>
+          <button className="registerButton" onClick={() => navigateTo('/register')}>Register</button>
+        </>
+      )
     }
-  
-
+  }
 
   return (
     <div className="parentDiv">
+    <FetchData onDataReceived={handleUserData} />
     <header className="header">
       <span className="headerSection registerLink">
         <button className="registerLink" onClick={() => navigateTo('/Registercar')}>Register My Car</button>
@@ -35,15 +53,7 @@ export default function Header() {
         <h1 onClick={() => navigateTo('/')}>Just Take My Car</h1>
       </span>
       <span className="headerSection buttons">
-        {/* {isLoggedIn ? (
-          <button className="buttonContainer" >Logout</button>
-        ) : ( */}
-          <>
-            <button className="loginButton" onClick={() => navigateTo('/login')}>Login</button>
-            <button className="loginButton" onClick={handleLogout}>Logout</button>
-            <button className="registerButton" onClick={() => navigateTo('/register')}>Register</button>
-          </>
-        {/* )} */}
+        {changeLogin()}
       </span>
     </header>
     </div>

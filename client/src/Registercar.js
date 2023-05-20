@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
 import "./Registercar.css";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import FetchData from "./hooks/fetchdata";
 
 

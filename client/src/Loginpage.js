@@ -39,7 +39,6 @@ export default function Login() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         />
-
         <label htmlFor="password">Password:</label>
         <input 
         type="password" 

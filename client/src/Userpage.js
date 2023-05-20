@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import './Userpage.css';
 import FetchData from './hooks/fetchdata';
 
-export default function Userpage() {
+export default function Userpage(props) {
   // attempt to display loading while the data from the page is rendering
   const [userData, setUserData] = useState({});
   const [userCars, setUserCars] = useState([]);
@@ -12,7 +12,7 @@ export default function Userpage() {
   const handleUserData = (data) => {
     setUserData(data)
   }
-  
+  console.log('props', props)
   // example of how to structure asynchronous variables
   const userEmail = userData?.user?.email;
   const userId = userData?.user?.id;
@@ -62,19 +62,19 @@ export default function Userpage() {
 
   <h2>Rented Cars</h2>
 <div id='rentedCon'>
-  <div class='rentedcars'>
+  <div className='rentedcars'>
     <div className='rentedName'> {userEmail} </div>
     <div className='rentedImg'> img goes here</div>
     <div className='rentedfooter'> Reserve </div>
   </div>
 
-  <div class='rentedcars'>
+  <div className='rentedcars'>
     <div className='rentedName'> car name</div>
     <div className='rentedImg'> img goes here</div>
     <div className='rentedfooter'> Reserve </div>
   </div>
 
-  <div class='rentedcars'>
+  <div className='rentedcars'>
     <div className='rentedName'> car name</div>
     <div className='rentedImg'> img goes here</div>
     <div className='rentedfooter'> Reserve </div>
