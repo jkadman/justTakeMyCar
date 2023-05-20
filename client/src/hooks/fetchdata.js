@@ -8,7 +8,6 @@ import axios  from 'axios'
 export default function FetchData ({ onDataReceived }) {
   const [userData, setUserData] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(true);
-  // check if user is authenticate to stop brief pop up for protected page, doesn't really work
   const [isAuth, setIsAuth] = useState(true);
 useEffect(() => {
   const fetchUserData = async () => {
