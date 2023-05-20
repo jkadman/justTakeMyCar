@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import './StolenCar.css';
 
-
 export default function StolenCar() {
   const [selectedButtons, setSelectedButtons] = useState([]);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    email: ''
+    email: '',
+    carDescription: ''
   });
-
 
   const handleButtonClick = (buttonValue) => {
     if (selectedButtons.includes(buttonValue)) {
@@ -18,6 +17,7 @@ export default function StolenCar() {
       setSelectedButtons([...selectedButtons, buttonValue]);
     }
   };
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevState) => ({
@@ -26,37 +26,18 @@ export default function StolenCar() {
     }));
   };
 
-
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent form submission (for demo purposes)
 
-
     const emailSubject = 'Stolen Vehicle Report';
-    const emailBody = `First Name: ${formData.firstName}\nLast Name: ${formData.lastName}\nEmail: ${formData.email}\n\nSelected Options: ${selectedButtons.join(', ')}`;
+    const emailBody = `First Name: ${formData.firstName}\nLast Name: ${formData.lastName}\nEmail: ${formData.email}\nCar Description: ${formData.carDescription}\n\nSelected Options: ${selectedButtons.join(', ')}`;
 
+    const mailtoUrl = `mailto:JustTakeMyCar@gmail.com?subject=${encodeURIComponent(
+      emailSubject
+    )}&body=${encodeURIComponent(emailBody)}`;
 
-    const mailtoUrl = `mailto:JustTakeMyCar@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-
-
-    // Create a temporary anchor element to attach the file
-    const anchor = document.createElement('a');
-    anchor.href = mailtoUrl;
-
-
-    // Attach the file if available
-    if (formData.image) {
-      const fileUrl = URL.createObjectURL(formData.image);
-      anchor.href += `&attachment=${encodeURIComponent(fileUrl)}`;
-    }
-
-
-
-
-
-
-    anchor.click();
+    window.location.href = mailtoUrl;
   };
-
 
   return (
     <div className="container">
@@ -73,7 +54,6 @@ export default function StolenCar() {
           required
         />
 
-
         <label htmlFor="lastName">Last Name:</label>
         <input
           type="text"
@@ -84,7 +64,6 @@ export default function StolenCar() {
           onChange={handleInputChange}
           required
         />
-
 
         <label htmlFor="email">Email:</label>
         <input
@@ -97,12 +76,15 @@ export default function StolenCar() {
           required
         />
 
-
-        <div className="image-upload">
-          <label htmlFor="image">Upload Image:</label>
-          <input type="file" id="image" name="image" />
-        </div>
-
+        <label htmlFor="carDescription">Car Description:</label>
+        <textarea
+          id="carDescription"
+          name="carDescription"
+          placeholder="Enter description of the stolen car"
+          value={formData.carDescription}
+          onChange={handleInputChange}
+          required
+        ></textarea>
 
         <div className="buttons">
           <label>
@@ -133,7 +115,6 @@ export default function StolenCar() {
             24 hours since booking ended?
           </label>
         </div>
-
 
         <div className="submit-button">
           <button type="submit">Submit</button>

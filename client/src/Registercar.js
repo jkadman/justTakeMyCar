@@ -1,24 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Registercar.css";
 import { useNavigate } from "react-router-dom";
 import FetchData from "./hooks/fetchdata";
 
-
 export default function RegisterCar() {
-
   const [userData, setUserData] = useState(null);
 
   const handleUserData = (data) => {
     setUserData(data);
-  }
+  };
 
   const navigate = useNavigate();
 
   // populating the userId with the userId from the database once the async request is loaded
-  const userId = userData?.user?.id
+  const userId = userData?.user?.id;
 
   const [formData, setFormData] = useState({
-    user_id: '',
+    user_id: "",
     car_photo: "",
     make: "",
     type: "",
@@ -26,9 +24,22 @@ export default function RegisterCar() {
     colour: "",
     price_per_day: "",
     year: "",
-    street: ""
+    street: "",
+    email: ""
   });
 
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const dataUrl = reader.result;
+        setFormData((prevState) => ({ ...prevState, car_photo: dataUrl }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -38,49 +49,44 @@ export default function RegisterCar() {
     }));
   };
 
+
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent form submission (for demo purposes)
     try {
       const {
-        user_id,
-        car_photo,
         make,
         type,
         name,
         colour,
         price_per_day,
         year,
-        street
+        street,
+        car_photo,
+        email,
       } = formData;
 
       const body = {
         user_id: userId,
-        car_photo,
         make,
         type,
         name,
         colour,
         price_per_day,
         year,
-        street
+        street,
+        car_photo,
+        email
       };
+
+
       const response = await fetch("http://localhost:5001/Registercar", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
       });
-      navigate('/Userpage')
+      navigate("/Userpage");
     } catch (err) {
       console.error(err.message);
-    }
-
-    // Attach the file if available
-    if (formData.image) {
-      const fileUrl = URL.createObjectURL(formData.image);
-      const anchor = document.createElement("a");
-      anchor.href = "your-api-endpoint-url";
-      anchor.target = "_blank";
-      anchor.click();
     }
   };
 
@@ -95,7 +101,7 @@ export default function RegisterCar() {
           id="id"
           name="user_id"
           placeholder="Enter your id"
-          value={userId ?? ''}
+          value={userId ?? ""}
           onChange={handleInputChange}
         />
 
@@ -121,6 +127,8 @@ export default function RegisterCar() {
           <option value="Volksvagen">Volksvagen</option>
           <option value="Porche">Porche</option>
         </select>
+
+
 
         <label htmlFor="type">Type:</label>
         <select
@@ -152,6 +160,17 @@ export default function RegisterCar() {
           onChange={handleInputChange}
           required
         />
+
+<label htmlFor="email">Email:</label>
+<input
+  type="email"
+  id="email"
+  name="email"
+  placeholder="Enter your email"
+  value={formData.email}
+  onChange={handleInputChange}
+  required
+/>
 
         <label htmlFor="colour">Colour:</label>
         <select
@@ -204,29 +223,19 @@ export default function RegisterCar() {
           required
         />
 
-        <div className="image-upload">
-          <label htmlFor="image">Upload Image:</label>
-          <input
-          type="text"
-          id="car_photo"
-          name="car_photo"
-          placeholder="Upload photo of car"
-          value={formData.car_photo}
-          onChange={handleInputChange}
-          required
-        />
-        </div>
+<div className="image-upload">
+  <label htmlFor="image">Upload Image:</label>
+  <input
+    type="file"
+    id="car_photo"
+    name="car_photo"
+    accept="image/*"
+    onChange={handleFileChange}
+    required
+  />
+</div>
 
-        <label htmlFor="car_photo">Car photo:</label>
-        <input
-          type="text"
-          id="car_photo"
-          name="car_photo"
-          placeholder="Upload photo of car"
-          value={formData.car_photo}
-          onChange={handleInputChange}
-          required
-        />
+
 
         <div className="submit-button">
           <button type="submit">Submit</button>
@@ -235,4 +244,3 @@ export default function RegisterCar() {
     </div>
   );
 }
-
