@@ -17,39 +17,3 @@ VALUES ('Aaron Aaronson', '604 555 5656', 'aaaa@gmail.com', '12345'),
 
 
 
-
-
-
-
-
-
-INSERT INTO users (first_name, last_name, phone_number, email, location, owner, drivers_licence, username, password)
-VALUES 
-
-INSERT INTO users (first_name, last_name, phone_number, email, location, owner, drivers_licence, username, password)
-VALUES 
-
-INSERT INTO users (first_name, last_name, phone_number, email, location, owner, drivers_licence, username, password)
-VALUES 
-
-INSERT INTO users (first_name, last_name, phone_number, email, location, owner, drivers_licence, username, password)
-VALUES 
-
-INSERT INTO users (first_name, last_name, phone_number, email, location, owner, drivers_licence, username, password)
-VALUES ;
-
-INSERT INTO users (first_name, last_name, phone_number, email, location, owner, drivers_licence, username, password)
-VALUES 
-
-INSERT INTO users (first_name, last_name, phone_number, email, location, owner, drivers_licence, username, password)
-VALUES 
-
-
-INSERT INTO users (first_name, last_name, phone_number, email, location, owner, drivers_licence, username, password)
-VALUES ;
-
-INSERT INTO users (first_name, last_name, phone_number, email, location, owner, drivers_licence, username, password)
-VALUES ;
-
-
-

@@ -19,7 +19,7 @@ export default function CarsAvailable() {
   };
 
   const handleReserveClick = (car) => {
-    navigate("/Reserve", { state:{car} });
+    navigate("/Reserve", { state: { car } });
   };
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function CarsAvailable() {
   const carListB = cars.map((car, index) => {
     return (
       index < 15 &&
-      index > 7 && (
+      index >= 7 && (
         <div key={car.id} className="carItem">
           <div className="carName">
             {car.year} {car.make} {car.name}
@@ -40,8 +40,8 @@ export default function CarsAvailable() {
           <div className="carArea">
             <div>{car.street}</div>
             <div className="reserve">
-            <a className="Reserve" onClick={() => handleReserveClick(car)}>
-                Reserve
+              <a className="Reserve" onClick={() => handleReserveClick(car)}>
+                Reserved
               </a>
             </div>
           </div>

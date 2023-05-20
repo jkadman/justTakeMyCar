@@ -1,0 +1,1 @@
+SELECT car_photo, make, type, name, year, street

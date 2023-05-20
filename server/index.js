@@ -3,7 +3,7 @@ const cors = require("cors");
 const app = express();
 const jwt = require("jsonwebtoken");
 const pool = require("./src/db/db");
-const crypto = require("crypto")
+const crypto = require("crypto");
 
 // middleware
 app.use(cors());
@@ -13,12 +13,10 @@ app.use(express.static("public"));
 const getUserByEmail = async (email) => {
   const user = `SELECT * FROM users WHERE users.email = $1`;
   const value = [`${email}`];
-  return pool
-  .query(user, value)
-  .then((result) => {
-    return result.rows[0]
-  })
-}
+  return pool.query(user, value).then((result) => {
+    return result.rows[0];
+  });
+};
 
 const generateSecretKey = () => {
   const secretLength = 64;
@@ -47,7 +45,6 @@ app.post("/register", async (req, res) => {
 
 //user login
 app.post("/login", async (req, res) => {
-  
   try {
     const { email, password } = req.body;
     const query = `SELECT * FROM users WHERE users.email = $1`;
@@ -55,41 +52,38 @@ app.post("/login", async (req, res) => {
     const dbResponse = await pool.query(query, value);
     // const rows = dbResponse.rows[0].password;
     const userPass = dbResponse.rows[0].password;
-    const user = dbResponse.rows[0]
+    const user = dbResponse.rows[0];
     if (userPass === password) {
       const token = jwt.sign({ user }, secretKey);
-      console.log('secretKey', secretKey)
-      console.log('logintoken', token)
-      console.log('userId', user)
+      console.log("secretKey", secretKey);
+      console.log("logintoken", token);
+      console.log("userId", user);
 
-      res.json({ token })
+      res.json({ token });
     } else {
-      res.send("Error: your password doesn't match our records")
+      res.send("Error: your password doesn't match our records");
     }
   } catch (err) {
     console.log(err.message);
   }
-})
+});
 
 //access user page
 app.get("/Userpage", authenticateToken, (req, res) => {
   const user = req.user;
-  
-  res.json({ message: "Protected route accessed successfully", user});
+
+  res.json({ message: "Protected route accessed successfully", user });
 });
-
-
 
 // Middleware to Authenticate JWT
 function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
-  console.log('token', token)
+  console.log("token", token);
 
-if (token == null) {
-  return res.sendStatus(401);
-}
-
+  if (token == null) {
+    return res.sendStatus(401);
+  }
 
   jwt.verify(token, secretKey, (err, decodedToken) => {
     if (err) {
@@ -97,12 +91,10 @@ if (token == null) {
       return res.sendStatus(403);
     }
 
-    req.user = decodedToken
+    req.user = decodedToken;
     next();
   });
 }
-
-
 
 // create a new car
 app.post("/Registercar", async (req, res) => {
@@ -119,7 +111,7 @@ app.post("/Registercar", async (req, res) => {
       year,
       street,
     } = req.body;
-    console.log('reqUI', req.body)
+    console.log("reqUI", req.body);
     const newUser = await pool.query(
       "INSERT INTO cars (user_id, car_photo, make, type, name, colour, price_per_day, year, street) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING * ",
       [
@@ -151,21 +143,33 @@ app.get("/", async (req, res) => {
   }
 });
 
+app.get("/Totalavailableseemore", async (req, res) => {
+  try {
+    const carsTotalPage = await pool.query(
+      "SELECT * FROM cars JOIN reservations ON cars_id = cars.id"
+    );
+    res.json(carsTotalPage.rows);
+    console.log(res.json(carsTotalPage.rows));
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
 // get user cars
 app.get("/userCars", async (req, res) => {
-  const userId = req.headers['x-user-id'];
+  const userId = req.headers["x-user-id"];
   const query = "SELECT * FROM cars WHERE user_id = $1";
   const values = [userId];
 
-  pool.query(query, values)
-  .then((result) => {
-    const cars = result.rows
-    res.json(cars);
-  })
-  .catch((err) => {
-    console.log(err)
-  });
-
+  pool
+    .query(query, values)
+    .then((result) => {
+      const cars = result.rows;
+      res.json(cars);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 app.listen(5001, () => {
