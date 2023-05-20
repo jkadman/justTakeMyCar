@@ -24,6 +24,7 @@ export default function Header() {
   const userId = userData?.user?.id
   console.log('headerUD', userData?.user?.id)
 
+  // change rendering if userId is present
   const changeLogin = () => {
     if (userId != null) {
       return (
