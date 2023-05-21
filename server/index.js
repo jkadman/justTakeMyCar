@@ -4,11 +4,14 @@ const app = express();
 const jwt = require("jsonwebtoken");
 const pool = require("./src/db/db");
 const crypto = require("crypto")
+const multer = require('multer');
+const path = require('path');
 
 // middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 const getUserByEmail = async (email) => {
   const user = `SELECT * FROM users WHERE users.email = $1`;
@@ -19,6 +22,15 @@ const getUserByEmail = async (email) => {
     return result.rows[0]
   })
 }
+
+const storage = multer.diskStorage({
+  destination: (req, res, cb) => {
+    cb(null, './public/pictures')
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname)
+  }
+})
 
 const generateSecretKey = () => {
   const secretLength = 64;
@@ -102,15 +114,14 @@ if (token == null) {
   });
 }
 
-
+const upload = multer({ storage });
 
 // create a new car
-app.post("/Registercar", async (req, res) => {
+app.post("/Registercar",upload.single('car_photo'), async (req, res) => {
   try {
     console.log(req.body);
     const {
       user_id,
-      car_photo,
       make,
       type,
       name,
@@ -118,7 +129,9 @@ app.post("/Registercar", async (req, res) => {
       price_per_day,
       year,
       street,
-    } = req.body;
+    } = JSON.parse(req.body.data);
+
+    const car_photo = req.file.filename;
     console.log('reqUI', req.body)
     const newUser = await pool.query(
       "INSERT INTO cars (user_id, car_photo, make, type, name, colour, price_per_day, year, street) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING * ",
@@ -133,7 +146,7 @@ app.post("/Registercar", async (req, res) => {
         year,
         street,
       ]
-    );
+    )
     res.status(200).json({ message: "Registration successful" }); // Send a success response
   } catch (err) {
     console.log(err.message);

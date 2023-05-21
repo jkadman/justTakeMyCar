@@ -87,9 +87,9 @@ export default function Userpage(props) {
     <div id='CarCon'>
         {userCars.map((car) => (
           <div key={car.id} className='myCars'>
-            <div class='ownedcars'>
+            <div className='ownedcars'>
             <div className='rentedName'> {car.name}</div>
-            <div className='rentedImg'> img goes here</div>
+            <div className='rentedImg'> <img src={`/pictures/${car.car_photo}`} alt={car.name} /></div>
             <div className='rentedfooter'> Reserve </div>
     </div>
         </div>
