@@ -3,65 +3,54 @@ import useNavigation from "./hooks/navigate";
 import Reservepage from "./Reservepage";
 import { useNavigate } from "react-router-dom";
 
-export default function CarsAvailable() {
+export default function TotalAvailable() {
   const navigate = useNavigate();
   const { navigateTo } = useNavigation();
-  const [cars, setCars] = useState([]);
-  const getCars = async () => {
+  const [reserved, setReserved] = useState([]);
+  const getRes = async () => {
     try {
-      const response = await fetch("http://localhost:5001");
+      const response = await fetch(
+        "http://localhost:5001/Totalavailableseemore"
+      );
       const jsonData = await response.json();
       console.log(jsonData);
-      setCars(jsonData);
+      setReserved(jsonData);
     } catch (error) {
       console.error(error.message);
     }
   };
 
-  const handleReserveClick = (car) => {
-    navigate("/Reserve", { state: { car } });
-  };
+  // const handleReserveClick = (car) => {
+  //   navigate("/Reserve", { state: { car } });
+  // };
 
   useEffect(() => {
-    getCars();
+    getRes();
   }, []);
 
-  const carListC = cars.map((car) => {
+  const reservedCars = reserved.map((reserve, index) => {
     return (
-      <div key={car.id} className="carItem">
-        <div className="carName">
-          {car.year} {car.make} {car.name}
-        </div>
-        <div className="carImage">
-          <img src={car.car_photo} alt="car1"></img>
-        </div>
-        <div className="carArea">
-          <div>{car.street}</div>
-          <div className="reserve">
-            <a className="Reserve" onClick={() => handleReserveClick(car)}>
-              Reserved
-            </a>
+      index < 8 && (
+        <div key={index} className="carItem">
+          <div className="carName">
+            {reserve.year} {reserve.make} {reserve.name}
+          </div>
+          <div className="carImage">
+            <img src={reserve.car_photo} alt="car1"></img>
+          </div>
+          <div className="carArea">
+            <div>{reserve.street}</div>
+            <div className="reserve">Reserved</div>
           </div>
         </div>
-      </div>
+      )
     );
   });
 
   return (
     <div>
       <div className="totalTitle"> Cars in stock</div>
-      <div className="registeredCars">
-        {carListC}
-        <div className="seeMore">
-          <button
-            className="seeMore"
-            onClick={() => navigate("/Totalavailableseemore")}
-          >
-            See More
-          </button>
-        </div>
-        ;
-      </div>
+      <div className="registeredCars">{reservedCars}</div>
     </div>
   );
 }

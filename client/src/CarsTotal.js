@@ -28,7 +28,7 @@ export default function CarsAvailable() {
 
   const carListB = cars.map((car, index) => {
     return (
-      index < 15 &&
+      index < 14 &&
       index >= 7 && (
         <div key={car.id} className="carItem">
           <div className="carName">
