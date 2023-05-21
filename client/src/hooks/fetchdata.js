@@ -6,7 +6,6 @@ import axios  from 'axios'
   
 
 export default function FetchData ({ onDataReceived }) {
-  const [userData, setUserData] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [isAuth, setIsAuth] = useState(true);
 useEffect(() => {
