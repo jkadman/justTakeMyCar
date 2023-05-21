@@ -183,6 +183,7 @@ export default function RegisterCar() {
           <option value="Black">Black</option>
           <option value="Grey">Grey</option>
           <option value="White">White</option>
+          <option value="Orange">Orange</option>
         </select>
 
         <label htmlFor="price_per_day">Price per Day:</label>

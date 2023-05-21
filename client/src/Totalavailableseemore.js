@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import useNavigation from "./hooks/navigate";
 import Reservepage from "./Reservepage";
 import { useNavigate } from "react-router-dom";
+import "./Totalavailableseemore.css";
 
 export default function TotalAvailable() {
   const navigate = useNavigate();
@@ -30,27 +31,25 @@ export default function TotalAvailable() {
 
   const reservedCars = reserved.map((reserve, index) => {
     return (
-      index < 8 && (
-        <div key={index} className="carItem">
-          <div className="carName">
-            {reserve.year} {reserve.make} {reserve.name}
-          </div>
-          <div className="carImage">
-            <img src={reserve.car_photo} alt="car1"></img>
-          </div>
-          <div className="carArea">
-            <div>{reserve.street}</div>
-            <div className="reserve">Reserved</div>
-          </div>
+      <div key={index} className="carItem">
+        <div className="carName">
+          {reserve.year} {reserve.make} {reserve.name}
         </div>
-      )
+        <div className="carImage">
+          <img src={reserve.car_photo} alt="car1"></img>
+        </div>
+        <div className="carArea">
+          <div>{reserve.street}</div>
+          <div className="reserve"> Reserved until {reserve.booking_end}</div>
+        </div>
+      </div>
     );
   });
 
   return (
     <div>
       <div className="totalTitle"> Cars in stock</div>
-      <div className="registeredCars">{reservedCars}</div>
+      <div className="TotalCarsmore">{reservedCars}</div>
     </div>
   );
 }

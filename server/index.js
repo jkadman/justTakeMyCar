@@ -138,7 +138,6 @@ app.get("/", async (req, res) => {
   try {
     const carsLandingPage = await pool.query("SELECT * FROM cars");
     res.json(carsLandingPage.rows);
-    console.log("test1");
   } catch (error) {
     console.error(error.message);
   }
@@ -150,7 +149,6 @@ app.get("/CarsAvailableseemore", async (req, res) => {
       "SELECT car_photo, make, type, name, colour, price_per_day, year, street FROM cars WHERE cars.id NOT IN (SELECT reservations.car_id FROM reservations)";
     const carsAvailablePage = await pool.query(available);
     res.json(carsAvailablePage.rows);
-    console.log("test");
   } catch (error) {
     console.error(error.message);
   }
@@ -159,10 +157,9 @@ app.get("/CarsAvailableseemore", async (req, res) => {
 app.get("/Totalavailableseemore", async (req, res) => {
   try {
     const reserved =
-      "SELECT car_photo, make, type, name, colour, price_per_day, year, street FROM cars JOIN reservations ON cars.id = reservations.car_id";
+      "SELECT car_photo, make, type, name, colour, price_per_day, year, street, booking_end FROM cars JOIN reservations ON cars.id = reservations.car_id";
     const carsTotalPage = await pool.query(reserved);
     res.json(carsTotalPage.rows);
-    console.log("test");
   } catch (error) {
     console.error(error.message);
   }

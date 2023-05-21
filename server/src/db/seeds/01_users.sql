@@ -14,6 +14,11 @@ VALUES ('Aaron Aaronson', '604 555 5656', 'aaaa@gmail.com', '12345'),
 ('Count Dracula', '604 472 5663', 'dracula@hotmail.com', 'blood'),
 ('Genghis Khan', '604 785 3255', 'khan@outlook.com', 'world');
 
+INSERT INTO users (name, phone_number, email, password)
+VALUES ('Archit Purohit', '604 111 1111', 'architpurohit10@gmail.com', '11111'),
+('Jason Kadman', '604 555 5555', 'kadman231@gmail.com', 'aaaaa'),
+('Anastasia Kuzmin', '604 777 7777', 'anakuzmin2@gmail.com', '77777');
+
 
 
 
