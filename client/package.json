@@ -40,6 +40,8 @@
     ]
   },
   "devDependencies": {
+    "@googlemaps/js-api-loader": "^1.15.2",
+    "@react-google-maps/api": "^2.18.1",
     "axios": "^1.4.0",
     "env": "^0.0.2",
     "nodemon": "^2.0.22",
