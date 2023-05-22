@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "google-map-react": "^2.2.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-datepicker": "^4.11.0",
@@ -44,6 +45,8 @@
     "@react-google-maps/api": "^2.18.1",
     "axios": "^1.4.0",
     "env": "^0.0.2",
+    "env-cmd": "^10.1.0",
+    "google-maps": "^4.3.3",
     "nodemon": "^2.0.22",
     "react-cookie": "^4.1.1",
     "react-router-dom": "^6.11.1"
