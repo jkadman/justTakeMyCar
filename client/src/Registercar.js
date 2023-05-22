@@ -66,11 +66,12 @@ export default function RegisterCar() {
         make,
         type,
         name,
+        email,
         colour,
         price_per_day,
         year,
         car_photo,
-        email,
+        street,
       } = carData;
 
       const body = {

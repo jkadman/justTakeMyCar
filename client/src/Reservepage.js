@@ -58,21 +58,21 @@ export default function Reservepage() {
     const car = location.state.car;
 
     const handleReserveClick = async (event) => {
-      // const emailSubject = "Car Reservation";
-      // const emailBody = `
-      //   Make: ${car.make}
-      //   Name: ${car.name}
-      //   Street: ${car.street}
-      //   Price Per Day: ${car.price_per_day}
-      //   Start Date: ${startDate ? startDate.toDateString() : ""}
-      //   End Date: ${endDate ? endDate.toDateString() : ""}
-      // `;
+      const emailSubject = "Car Reservation";
+      const emailBody = `
+        Make: ${car.make}
+        Name: ${car.name}
+        Street: ${car.street}
+        Price Per Day: ${car.price_per_day}
+        Start Date: ${startDate ? startDate.toDateString() : ""}
+        End Date: ${endDate ? endDate.toDateString() : ""}
+      `;
 
-      // const mailtoUrl = `mailto:${car.email}?subject=${encodeURIComponent(
-      //   emailSubject
-      // )}&body=${encodeURIComponent(emailBody)}`;
+      const mailtoUrl = `mailto:${car.email}?subject=${encodeURIComponent(
+        emailSubject
+      )}&body=${encodeURIComponent(emailBody)}`;
 
-      // window.location.href = mailtoUrl;
+      window.location.href = mailtoUrl;
       setShowPopup(true);
       event.preventDefault(); // Prevent form submission (for demo purposes)
       try {
@@ -143,6 +143,7 @@ export default function Reservepage() {
           <div className="item1">
             <h4>{car.price_per_day}</h4>
           </div>
+          {totalPrice}
           <div className="datePicker">
             <DatePicker
               selected={startDate}
