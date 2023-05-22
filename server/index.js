@@ -87,14 +87,11 @@ app.get("/Userpage", authenticateToken, (req, res) => {
   res.json({ message: "Protected route accessed successfully", user });
 });
 
-<<<<<<< HEAD
 // google maps api page
 app.get("/map", (req, res) => {
-  res.send('hello')
-})
+  res.send("hello");
+});
 
-=======
->>>>>>> c3ffdc5bd2045784bab4ef34a0b80c711491398b
 // Middleware to Authenticate JWT
 function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
