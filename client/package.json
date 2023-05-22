@@ -7,11 +7,8 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-<<<<<<< HEAD
     "google-map-react": "^2.2.1",
-=======
     "jsonwebtoken": "^9.0.0",
->>>>>>> c3ffdc5bd2045784bab4ef34a0b80c711491398b
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-datepicker": "^4.11.0",
