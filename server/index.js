@@ -59,7 +59,7 @@ app.post("/register", async (req, res) => {
 
 //user login
 app.post("/login", async (req, res) => {
-  
+
   try {
     const { email, password } = req.body;
     const query = `SELECT * FROM users WHERE users.email = $1`;
@@ -86,7 +86,7 @@ app.post("/login", async (req, res) => {
 //access user page
 app.get("/Userpage", authenticateToken, (req, res) => {
   const user = req.user;
-  
+
   res.json({ message: "Protected route accessed successfully", user});
 });
 
@@ -128,13 +128,21 @@ app.post("/Registercar",upload.single('car_photo'), async (req, res) => {
       colour,
       price_per_day,
       year,
-      street,
+      house_number,
+        street_direction,
+        street_name,
+        street_suffix,
+        city,
+        state,
+        zip,
+        country,
+        email
     } = JSON.parse(req.body.data);
 
     const car_photo = req.file.filename;
     console.log('reqUI', req.body)
     const newUser = await pool.query(
-      "INSERT INTO cars (user_id, car_photo, make, type, name, colour, price_per_day, year, street) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING * ",
+      "INSERT INTO cars (user_id, car_photo, make, type, name, colour, price_per_day, year, house_number,street_direction,street_name,street_suffix,city,state,zip,country,email) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9,$10,$11,$12,$13,$14,$15,$16,$17) RETURNING * ",
       [
         user_id,
         car_photo,
@@ -144,7 +152,15 @@ app.post("/Registercar",upload.single('car_photo'), async (req, res) => {
         colour,
         price_per_day,
         year,
-        street,
+        house_number,
+        street_direction,
+        street_name,
+        street_suffix,
+        city,
+        state,
+        zip,
+        country,
+        email
       ]
     )
     res.status(200).json({ message: "Registration successful" }); // Send a success response

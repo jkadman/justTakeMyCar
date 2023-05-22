@@ -30,12 +30,18 @@ export default function RegisterCar() {
     price_per_day: "",
     year: "",
     street: "",
+    street_name:"",
+    street_suffix:"",
+    city:"",
+    state:"",
+    zip:"",
+    country:"",
     email: ""
   });
 
-  
 
-  
+
+
 
   const handleFileChange = (e) => {
     const img = {
@@ -76,21 +82,35 @@ export default function RegisterCar() {
         colour,
         price_per_day,
         year,
-        street,
+        house_number,
+        street_direction,
+        street_name,
+        street_suffix,
+        city,
+        state,
+        zip,
+        country,
         car_photo,
         email,
       } = carData;
 
       const body = {
         user_id: userId,
+        car_photo,
         make,
         type,
         name,
         colour,
         price_per_day,
         year,
-        street,
-        car_photo,
+        house_number,
+        street_direction,
+        street_name,
+        street_suffix,
+        city,
+        state,
+        zip,
+        country,
         email
       };
 
@@ -245,16 +265,116 @@ export default function RegisterCar() {
           required
         />
 
-        <label htmlFor="street">What street is your car parked?</label>
-        <input
-          type="text"
-          id="street"
-          name="street"
-          placeholder="Enter the street"
-          value={carData.street}
-          onChange={handleInputChange}
-          required
-        />
+<label htmlFor="year">Year:</label>
+<input
+  type="text"
+  id="year"
+  name="year"
+  placeholder="Enter the year"
+  value={carData.year}
+  onChange={handleInputChange}
+  required
+/>
+
+<label htmlFor="street">What street is your car parked?</label>
+<input
+  type="text"
+  id="street_name"
+  name="street"
+  placeholder="Enter the street"
+  value={carData.street}
+  onChange={handleInputChange}
+  required
+/>
+
+<label htmlFor="house_number">What is the house number?</label>
+<input
+  type="text"
+  id="house_number"
+  name="house_number"
+  placeholder="Enter the house number"
+  value={carData.house_number}
+  onChange={handleInputChange}
+  required
+/>
+
+<label htmlFor="street_direction">What street direction?</label>
+<input
+  type="text"
+  id="street_direction"
+  name="street_direction"
+  placeholder="Enter the direction"
+  value={carData.street_direction}
+  onChange={handleInputChange}
+  required
+/>
+
+<label htmlFor="street_name">What street name?</label>
+<input
+  type="text"
+  id="street_name"
+  name="street_name"
+  placeholder="Enter the street name"
+  value={carData.street_name}
+  onChange={handleInputChange}
+  required
+/>
+
+<label htmlFor="street_suffix">What street suffix?</label>
+<input
+  type="text"
+  id="street_suffix"
+  name="street_suffix"
+  placeholder="Enter the street suffix"
+  value={carData.street_suffix}
+  onChange={handleInputChange}
+  required
+/>
+
+<label htmlFor="city">Which city?</label>
+<input
+  type="text"
+  id="city"
+  name="city"
+  placeholder="Enter the city"
+  value={carData.city}
+  onChange={handleInputChange}
+  required
+/>
+
+<label htmlFor="state">What state?</label>
+<input
+  type="text"
+  id="state"
+  name="state"
+  placeholder="Enter the state"
+  value={carData.state}
+  onChange={handleInputChange}
+  required
+/>
+
+<label htmlFor="zip">Zip code</label>
+<input
+  type="text"
+  id="zip"
+  name="zip"
+  placeholder="Enter zip"
+  value={carData.zip}
+  onChange={handleInputChange}
+  required
+/>
+
+<label htmlFor="country">Which country?</label>
+<input
+  type="text"
+  id="country"
+  name="country"
+  placeholder="Enter the country"
+  value={carData.country}
+  onChange={handleInputChange}
+  required
+/>
+
 
 <div className="image-upload">
   <label htmlFor="image">Upload Image:</label>
