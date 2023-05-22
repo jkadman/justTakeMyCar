@@ -58,22 +58,22 @@ export default function Reservepage() {
     const car = location.state.car;
 
     const handleReserveClick = async (event) => {
-      // const emailSubject = "Car Reservation";
-      // const emailBody = `
-      //   Make: ${car.make}
-      //   Name: ${car.name}
-      //   Street: ${car.street}
-      //   Price Per Day: ${car.price_per_day}
-      //   Start Date: ${startDate ? startDate.toDateString() : ""}
-      //   End Date: ${endDate ? endDate.toDateString() : ""}
-      // `;
+      const emailSubject = "Car Reservation";
+      const emailBody = `
+        Make: ${car.make}
+        Name: ${car.name}
+        Street: ${car.street}
+        Price Per Day: ${car.price_per_day}
+        Start Date: ${startDate ? startDate.toDateString() : ""}
+        End Date: ${endDate ? endDate.toDateString() : ""}
+      `;
 
-      // const mailtoUrl = `mailto:${car.email}?subject=${encodeURIComponent(
-      //   emailSubject
-      // )}&body=${encodeURIComponent(emailBody)}`;
+      const mailtoUrl = `mailto:${car.email}?subject=${encodeURIComponent(
+        emailSubject
+      )}&body=${encodeURIComponent(emailBody)}`;
 
-      // window.location.href = mailtoUrl;
-      // setShowPopup(true);
+      window.location.href = mailtoUrl;
+      setShowPopup(true);
       event.preventDefault(); // Prevent form submission (for demo purposes)
       try {
         const {
