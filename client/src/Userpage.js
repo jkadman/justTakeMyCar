@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
 import "./Userpage.css";
 import FetchData from "./hooks/fetchdata";
 
@@ -10,8 +9,8 @@ export default function Userpage(props) {
   const [userCars, setUserCars] = useState([]);
 
   const handleUserData = (data) => {
-    setUserData(data)
-  }
+    setUserData(data);
+  };
 
   // example of how to structure asynchronous variables
   const userEmail = userData?.user?.email;
@@ -27,7 +26,6 @@ export default function Userpage(props) {
   const fetchUserCars = async () => {
     try {
       const token = localStorage.getItem("token");
-      const user = userId;
       const response = await axios.get("/userCars", {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -39,11 +37,7 @@ export default function Userpage(props) {
     } catch (err) {
       console.error(err);
     }
-  }
-
- 
-
-  const fetchUserReso = async () => {};
+  };
 
   return (
     <div id="body">
