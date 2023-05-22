@@ -1,157 +1,62 @@
-import React from 'react'
-import './CarsAvailableseemore.css'
+import React, { useEffect, useState } from "react";
+import useNavigation from "./hooks/navigate";
+import Reservepage from "./Reservepage";
+import { useNavigate } from "react-router-dom";
+import "./CarsAvailableseemore.css";
 
-// for total available
-export default function Totalavailableseemore() {
+export default function TotalAvailable() {
+  const navigate = useNavigate();
+  const { navigateTo } = useNavigation();
+  const [available, setAvailable] = useState([]);
+  const getAvailable = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:5001/CarsAvailableseemore"
+      );
+      const jsonData = await response.json();
+      console.log(jsonData);
+      setAvailable(jsonData);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  const handleReserveClick = (car) => {
+    navigate("/Reserve", { state: { car } });
+  };
+
+  useEffect(() => {
+    getAvailable();
+  }, []);
+
+  const availableCars = available.map((available, index) => {
+    return (
+      <div key={index} className="carItem">
+        <div className="carName">
+          {available.year} {available.make} {available.name}
+        </div>
+        <div className="carImage">
+          <img src={available.car_photo} alt="car1"></img>
+        </div>
+        <div className="carArea">
+          <div>{available.street}</div>
+          <div className="reserve">
+            <a
+              className="Reserve"
+              onClick={() => handleReserveClick(available)}
+            >
+              Reserve
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  });
+
   return (
     <div>
-    <div className="availableTitleSeemore"> <h2>Cars available now </h2>
-    <p> The cars listed here have been set to available by their owners</p>
+      <div className="totalTitle"> Cars Available</div>
+      <div className="availableCarsmore">{availableCars}</div>
     </div>
-    <div className="totalSeemore">
-      <div id='Selectors'  className="selectorsContainer">
-  <label for="type">Type:</label>
-  <select id="type">
-    <option value="gas">Gas</option>
-    <option value="electric">Electric</option>
-    <option value="hybrid">Hybrid</option>
-  </select>
-
-  <label for="make">Make:</label>
-  <select id="make">
-    <option value="brand1">Brand 1</option>
-    <option value="brand2">Brand 2</option>
-  </select>
-
-  <label for="price">Price:</label>
-  <select id="price">
-    <option value="100">Up to $100</option>
-    <option value="200">Up to $200</option>
-    <option value="300">Up to $200</option>
-    <option value="400">Up to $200</option>
-    <option value="500">Up to $200</option>
-    <option value="600">Up to $200</option>
-  </select>
-
-  <label for="color">Color:</label>
-  <select id="color">
-    <option value="red">Red</option>
-    <option value="blue">Blue</option>
-    <option value="white">White</option>
-    <option value="green">Green</option>
-    <option value="black">Black</option>
-  </select>
-
-</div>
-
-
-      <div className="TotalCarsmore">
-           <div className="carItem">
-            <div className="carName"> Car 1</div>
-            <div className="carImage"> image</div>
-            <div className="carArea">
-              <div>area</div>
-              <div className="reserve"> <a href="#">Reserve</a></div>
-            </div>
-
-           </div>
-           <div className="carItem">
-            <div className="carName"> Car 2</div>
-            <div className="carImage"> image</div>
-            <div className="carArea">
-              <div>area</div>
-              <div className="reserve"> <a href="#">Reserve</a></div>
-            </div>
-
-           </div>
-           <div className="carItem">
-            <div className="carName"> Car 3</div>
-            <div className="carImage"> image</div>
-            <div className="carArea">
-              <div>area</div>
-              <div className="reserve"> <a href="#">Reserve</a></div>
-            </div>
-
-           </div>
-           <div className="carItem">
-            <div className="carName"> Car 4</div>
-            <div className="carImage"> image</div>
-            <div className="carArea">
-              <div>area</div>
-              <div className="reserve"> <a href="#">Reserve</a></div>
-            </div>
-
-           </div>
-           <div className="carItem">
-            <div className="carName"> Car 5</div>
-            <div className="carImage"> image</div>
-            <div className="carArea">
-              <div>area</div>
-              <div className="reserve"> <a href="#">Reserve</a></div>
-            </div>
-
-           </div>
-           <div className="carItem">
-            <div className="carName"> Car 6 </div>
-            <div className="carImage"> image</div>
-            <div className="carArea">
-              <div>area</div>
-              <div className="reserve"> <a href="#">Reserve</a></div>
-            </div>
-           </div>
-           <div className="carItem">
-            <div className="carName"> Car 7 </div>
-            <div className="carImage"> image</div>
-            <div className="carArea">
-              <div>area</div>
-              <div className="reserve"> <a href="#">Reserve</a></div>
-            </div>
-           </div>
-           <div className="carItem">
-            <div className="carName"> Car 8 </div>
-            <div className="carImage"> image</div>
-            <div className="carArea">
-              <div>area</div>
-              <div className="reserve"> <a href="#">Reserve</a></div>
-            </div>
-           </div>
-           <div className="carItem">
-            <div className="carName"> Car 9 </div>
-            <div className="carImage"> image</div>
-            <div className="carArea">
-              <div>area</div>
-              <div className="reserve"> <a href="#">Reserve</a></div>
-            </div>
-           </div>
-           <div className="carItem">
-            <div className="carName"> Car 10 </div>
-            <div className="carImage"> image</div>
-            <div className="carArea">
-              <div>area</div>
-              <div className="reserve"> <a href="#">Reserve</a></div>
-            </div>
-           </div>
-           <div className="carItem">
-            <div className="carName"> Car 11 </div>
-            <div className="carImage"> image</div>
-            <div className="carArea">
-              <div>area</div>
-              <div className="reserve"> <a href="#">Reserve</a></div>
-            </div>
-           </div>
-           <div className="carItem">
-            <div className="carName"> Car 12 </div>
-            <div className="carImage"> image</div>
-            <div className="carArea">
-              <div>area</div>
-              <div className="reserve"> <a href="#">Reserve</a></div>
-            </div>
-           </div>
-
-
-      </div>
-      </div>
-      </div>
-  )
+  );
 }
-

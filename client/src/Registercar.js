@@ -6,10 +6,7 @@ import FetchData from "./hooks/fetchdata";
 export default function RegisterCar() {
   const [userData, setUserData] = useState(null);
   const [image, setImage] = useState({ preview: "", data: "" });
-  const [status, setStatus] = useState('');
-
-
-
+  const [status, setStatus] = useState("");
 
   const handleUserData = (data) => {
     setUserData(data);
@@ -19,6 +16,7 @@ export default function RegisterCar() {
 
   // populating the userId with the userId from the database once the async request is loaded
   const userId = userData?.user?.id;
+  const userEmail = userData?.user?.email;
 
   const [carData, setCarData] = useState({
     user_id: "",
@@ -26,24 +24,20 @@ export default function RegisterCar() {
     make: "",
     type: "",
     name: "",
+    email: "",
     colour: "",
     price_per_day: "",
     year: "",
     street: "",
-    email: ""
   });
-
-  
-
-  
 
   const handleFileChange = (e) => {
     const img = {
       preview: URL.createObjectURL(e.target.files[0]),
       data: e.target.files[0],
-    }
-    setImage(img)
-  }
+    };
+    setImage(img);
+  };
 
   // const handleFileChange = (event) => {
   //   const file = event.target.files[0];
@@ -61,10 +55,9 @@ export default function RegisterCar() {
     const { name, value } = event.target;
     setCarData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
-
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent form submission (for demo purposes)
@@ -73,12 +66,12 @@ export default function RegisterCar() {
         make,
         type,
         name,
+        email,
         colour,
         price_per_day,
         year,
-        street,
         car_photo,
-        email,
+        street,
       } = carData;
 
       const body = {
@@ -86,15 +79,15 @@ export default function RegisterCar() {
         make,
         type,
         name,
+        email: userEmail,
         colour,
         price_per_day,
         year,
-        street,
         car_photo,
-        email
+        street,
       };
 
-      const formData = new FormData()
+      const formData = new FormData();
       formData.append("car_photo", image.data);
       formData.append("data", JSON.stringify(body));
       // imgData.append('file', image.data);
@@ -161,8 +154,6 @@ export default function RegisterCar() {
           <option value="Porche">Porche</option>
         </select>
 
-
-
         <label htmlFor="type">Type:</label>
         <select
           id="type"
@@ -194,16 +185,16 @@ export default function RegisterCar() {
           required
         />
 
-<label htmlFor="email">Email:</label>
-<input
-  type="email"
-  id="email"
-  name="email"
-  placeholder="Enter your email"
-  value={carData.email}
-  onChange={handleInputChange}
-  required
-/>
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          value={carData.email}
+          onChange={handleInputChange}
+          required
+        />
 
         <label htmlFor="colour">Colour:</label>
         <select
@@ -221,6 +212,7 @@ export default function RegisterCar() {
           <option value="Black">Black</option>
           <option value="Grey">Grey</option>
           <option value="White">White</option>
+          <option value="Orange">Orange</option>
         </select>
 
         <label htmlFor="price_per_day">Price per Day:</label>
@@ -256,19 +248,17 @@ export default function RegisterCar() {
           required
         />
 
-<div className="image-upload">
-  <label htmlFor="image">Upload Image:</label>
-  <input
-    type="file"
-    id="car_photo"
-    name="car_photo"
-    accept="image/*"
-    onChange={handleFileChange}
-    required
-  />
-</div>
-
-
+        <div className="image-upload">
+          <label htmlFor="image">Upload Image:</label>
+          <input
+            type="file"
+            id="car_photo"
+            name="car_photo"
+            accept="image/*"
+            onChange={handleFileChange}
+            required
+          />
+        </div>
 
         <div className="submit-button">
           <button type="submit">Submit</button>

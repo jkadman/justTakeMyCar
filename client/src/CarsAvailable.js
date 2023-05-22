@@ -18,10 +18,9 @@ export default function CarsAvailable() {
     }
   };
   const handleReserveClick = (car) => {
-    navigate("/Reserve", { state:{car} });
+    navigate("/Reserve", { state: { car } });
   };
   // location.state.car
-
 
   useEffect(() => {
     getCars();
@@ -30,11 +29,7 @@ export default function CarsAvailable() {
   const carListA = cars.map((car, index) => {
     return (
       index < 7 && (
-        <div
-          onClick={() => console.log(car)}
-          key={car.id}
-          className="carItem"
-        >
+        <div onClick={() => console.log(car)} key={index} className="carItem">
           <div className="carName">
             {car.year} {car.make} {car.name}
           </div>
@@ -45,9 +40,9 @@ export default function CarsAvailable() {
             <div>{car.street}</div>
             <div className="reserve">
               <a className="Reserve" onClick={() => handleReserveClick(car)}>
+                {car.booking_end}
                 Reserve
               </a>
-
             </div>
           </div>
         </div>
