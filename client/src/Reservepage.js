@@ -127,6 +127,7 @@ export default function Reservepage() {
 
     return (
       <div id="container1">
+        <FetchData onDataReceived={handleUserData} />
         <div id="header1">
           <div className="header12">{car.make}</div>
           <div className="header123">{car.name}</div>
