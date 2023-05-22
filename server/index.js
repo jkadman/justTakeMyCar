@@ -132,8 +132,37 @@ app.post("/Registercar", async (req, res) => {
   }
 });
 
-// get cars
+// create a new car
+app.post("/Reserve", async (req, res) => {
+  try {
+    console.log(req.body);
+    const {
+      car_id,
+      user_id,
+      booking_start,
+      booking_end,
+      good_state_start,
+      good_state_end,
+    } = req.body;
+    console.log("reqUI", req.body);
+    const newUser = await pool.query(
+      "INSERT INTO reservations (car_id, user_id, booking_start, booking_end, good_state_start, good_state_end) VALUES($1, $2, $3, $4, $5, $6 ) RETURNING * ",
+      [
+        car_id,
+        user_id,
+        booking_start,
+        booking_end,
+        good_state_start,
+        good_state_end,
+      ]
+    );
+    res.status(200).json({ message: "Reservation request sent" }); // Send a success response
+  } catch (err) {
+    console.log(err.message);
+  }
+});
 
+// get all cars
 app.get("/", async (req, res) => {
   try {
     const carsLandingPage = await pool.query("SELECT * FROM cars");
@@ -143,6 +172,7 @@ app.get("/", async (req, res) => {
   }
 });
 
+//get available cars
 app.get("/CarsAvailableseemore", async (req, res) => {
   try {
     const available =
@@ -154,6 +184,7 @@ app.get("/CarsAvailableseemore", async (req, res) => {
   }
 });
 
+//get reserved cars
 app.get("/Totalavailableseemore", async (req, res) => {
   try {
     const reserved =
