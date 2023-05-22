@@ -16,6 +16,7 @@ export default function Userpage() {
   // example of how to structure asynchronous variables
   const userEmail = userData?.user?.email;
   const userId = userData?.user?.id;
+  console.log(userId);
 
   useEffect(() => {
     if (userData) {
@@ -48,7 +49,7 @@ export default function Userpage() {
       {userData ? (
         <div id="user">
           <h2>User Name</h2>
-          <p>Email: user@example.com</p>
+          <p>Email: {userEmail}</p>
         </div>
       ) : (
         <p>Loading...</p>
@@ -57,7 +58,7 @@ export default function Userpage() {
       <h2>Rented Cars</h2>
       <div id="rentedCon">
         <div className="rentedcars">
-          <div className="rentedName"> {userEmail} </div>
+          <div className="rentedName"> car name </div>
           <div className="rentedImg"> img goes here</div>
           <div className="rentedfooter"> Reserve </div>
         </div>

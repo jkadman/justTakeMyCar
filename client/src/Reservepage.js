@@ -11,15 +11,18 @@ export default function Reservepage() {
   const [endDate, setEndDate] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
+
   const [userData, setUserData] = useState(null);
 
   const handleUserData = (data) => {
     setUserData(data);
   };
 
-  // populating the userId with the userId from the database once the async request is loaded
+  const navigate = useNavigate();
+
   const userId = userData?.user?.id;
   const userEmail = userData?.user?.email;
+
   const [reserve, setReserve] = useState({
     car_id: "",
     user_id: "",
@@ -49,30 +52,27 @@ export default function Reservepage() {
     }));
   };
 
-  const navigate = useNavigate();
-
   const location = useLocation();
 
   if (location.state && location.state.car) {
     const car = location.state.car;
 
     const handleReserveClick = async (event) => {
-      const emailSubject = "Car Reservation";
-      const emailBody = `
-        Make: ${car.make}
-        Name: ${car.name}
-        Street: ${car.street}
-        Price Per Day: ${car.price_per_day}
-        Start Date: ${startDate ? startDate.toDateString() : ""}
-        End Date: ${endDate ? endDate.toDateString() : ""}
-      `;
+      // const emailSubject = "Car Reservation";
+      // const emailBody = `
+      //   Make: ${car.make}
+      //   Name: ${car.name}
+      //   Street: ${car.street}
+      //   Price Per Day: ${car.price_per_day}
+      //   Start Date: ${startDate ? startDate.toDateString() : ""}
+      //   End Date: ${endDate ? endDate.toDateString() : ""}
+      // `;
 
-      const mailtoUrl = `mailto:${car.email}?subject=${encodeURIComponent(
-        emailSubject
-      )}&body=${encodeURIComponent(emailBody)}`;
+      // const mailtoUrl = `mailto:${car.email}?subject=${encodeURIComponent(
+      //   emailSubject
+      // )}&body=${encodeURIComponent(emailBody)}`;
 
-      window.location.href = mailtoUrl;
-
+      // window.location.href = mailtoUrl;
       setShowPopup(true);
       event.preventDefault(); // Prevent form submission (for demo purposes)
       try {
@@ -86,7 +86,7 @@ export default function Reservepage() {
         } = reserve;
 
         const body = {
-          car_id: car_id,
+          car_id: car.id, //car.id works when logged in
           user_id: userId,
           booking_start: startDate,
           booking_end: endDate,
@@ -99,6 +99,7 @@ export default function Reservepage() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(body),
         });
+        console.log(response);
         navigate("/Userpage");
       } catch (err) {
         console.error(err.message);

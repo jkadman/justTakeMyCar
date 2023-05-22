@@ -30,7 +30,7 @@ export default function CarsAvailable() {
     return (
       index < 14 &&
       index >= 7 && (
-        <div key={car.id} className="carItem">
+        <div key={index} className="carItem">
           <div className="carName">
             {car.year} {car.make} {car.name}
           </div>
@@ -63,7 +63,6 @@ export default function CarsAvailable() {
             See More
           </button>
         </div>
-        ;
       </div>
     </div>
   );

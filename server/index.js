@@ -132,7 +132,7 @@ app.post("/Registercar", async (req, res) => {
   }
 });
 
-// create a new car
+// reserve a car
 app.post("/Reserve", async (req, res) => {
   try {
     console.log(req.body);
@@ -188,7 +188,7 @@ app.get("/CarsAvailableseemore", async (req, res) => {
 app.get("/Totalavailableseemore", async (req, res) => {
   try {
     const reserved =
-      "SELECT car_photo, make, type, name, colour, price_per_day, year, street, booking_end FROM cars JOIN reservations ON cars.id = reservations.car_id";
+      "SELECT car_photo, make, type, name, colour, price_per_day, year, street, TO_CHAR(booking_end, 'yyyy-mm-dd') as booking_end FROM cars JOIN reservations ON cars.id = reservations.car_id";
     const carsTotalPage = await pool.query(reserved);
     res.json(carsTotalPage.rows);
   } catch (error) {
