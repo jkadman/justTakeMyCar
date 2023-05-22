@@ -5,6 +5,11 @@ import FetchData from "./hooks/fetchdata";
 
 export default function RegisterCar() {
   const [userData, setUserData] = useState(null);
+  const [image, setImage] = useState({ preview: "", data: "" });
+  const [status, setStatus] = useState('');
+
+
+
 
   const handleUserData = (data) => {
     setUserData(data);
@@ -15,7 +20,7 @@ export default function RegisterCar() {
   // populating the userId with the userId from the database once the async request is loaded
   const userId = userData?.user?.id;
 
-  const [formData, setFormData] = useState({
+  const [carData, setCarData] = useState({
     user_id: "",
     car_photo: "",
     make: "",
@@ -28,22 +33,33 @@ export default function RegisterCar() {
     email: ""
   });
 
+  
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const dataUrl = reader.result;
-        setFormData((prevState) => ({ ...prevState, car_photo: dataUrl }));
-      };
-      reader.readAsDataURL(file);
+  
+
+  const handleFileChange = (e) => {
+    const img = {
+      preview: URL.createObjectURL(e.target.files[0]),
+      data: e.target.files[0],
     }
-  };
+    setImage(img)
+  }
+
+  // const handleFileChange = (event) => {
+  //   const file = event.target.files[0];
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.onloadend = () => {
+  //       const dataUrl = reader.result;
+  //       setFormData((prevState) => ({ ...prevState, car_photo: dataUrl }));
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData((prevState) => ({
+    setCarData((prevState) => ({
       ...prevState,
       [name]: value
     }));
@@ -63,7 +79,7 @@ export default function RegisterCar() {
         street,
         car_photo,
         email,
-      } = formData;
+      } = carData;
 
       const body = {
         user_id: userId,
@@ -78,23 +94,40 @@ export default function RegisterCar() {
         email
       };
 
-
+      const formData = new FormData()
+      formData.append("car_photo", image.data);
+      formData.append("data", JSON.stringify(body));
+      // imgData.append('file', image.data);
       const response = await fetch("http://localhost:5001/Registercar", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
+        body: formData,
       });
-      navigate("/Userpage");
+      if (response.ok) {
+        navigate("/Userpage");
+      } else {
+        console.error("Error:", response.statusText);
+      }
     } catch (err) {
       console.error(err.message);
     }
   };
 
+  // const handleFileSubmit = async (e) => {
+  //   e.preventDefault();
+  //   let imgData = new FormData()
+  //   imgData.append('file', image.data);
+  //   const response = await fetch('http://localhost:5001/image', {
+  //     method: 'POST',
+  //     body: imgData
+  //   })
+  //   if (response) setStatus(response.statusText);
+  // }
+
   return (
     <div className="container">
       <FetchData onDataReceived={handleUserData} />
       <h2>Register your Vehicle</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <label htmlFor="user_id">User ID:</label>
         <input
           type="text"
@@ -109,7 +142,7 @@ export default function RegisterCar() {
         <select
           id="make"
           name="make"
-          value={formData.make}
+          value={carData.make}
           onChange={handleInputChange}
           required
         >
@@ -134,7 +167,7 @@ export default function RegisterCar() {
         <select
           id="type"
           name="type"
-          value={formData.type}
+          value={carData.type}
           onChange={handleInputChange}
           required
         >
@@ -156,7 +189,7 @@ export default function RegisterCar() {
           id="name"
           name="name"
           placeholder="Enter the name"
-          value={formData.name}
+          value={carData.name}
           onChange={handleInputChange}
           required
         />
@@ -167,7 +200,7 @@ export default function RegisterCar() {
   id="email"
   name="email"
   placeholder="Enter your email"
-  value={formData.email}
+  value={carData.email}
   onChange={handleInputChange}
   required
 />
@@ -176,7 +209,7 @@ export default function RegisterCar() {
         <select
           id="colour"
           name="colour"
-          value={formData.colour}
+          value={carData.colour}
           onChange={handleInputChange}
           required
         >
@@ -196,7 +229,7 @@ export default function RegisterCar() {
           id="price_per_day"
           name="price_per_day"
           placeholder="Enter the price per day"
-          value={formData.price_per_day}
+          value={carData.price_per_day}
           onChange={handleInputChange}
           required
         />
@@ -207,7 +240,7 @@ export default function RegisterCar() {
           id="year"
           name="year"
           placeholder="Enter the year"
-          value={formData.year}
+          value={carData.year}
           onChange={handleInputChange}
           required
         />
@@ -218,7 +251,7 @@ export default function RegisterCar() {
           id="street"
           name="street"
           placeholder="Enter the street"
-          value={formData.street}
+          value={carData.street}
           onChange={handleInputChange}
           required
         />
