@@ -124,7 +124,8 @@ export default function Reservepage() {
         setTotalPrice(0);
       }
     };
-
+    // example of how to access user data
+    console.log('RPUS', userData?.user?.id)
     return (
       <div id="container1">
         <FetchData onDataReceived={handleUserData} />
