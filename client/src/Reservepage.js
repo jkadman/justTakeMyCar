@@ -145,6 +145,7 @@ export default function Reservepage() {
           <div className="item1">
             <h4>{car.price_per_day}</h4>
           </div>
+
           <div className="datePicker">
             <DatePicker
               selected={startDate}

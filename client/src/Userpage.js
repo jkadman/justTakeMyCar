@@ -7,6 +7,7 @@ export default function Userpage(props) {
   // attempt to display loading while the data from the page is rendering
   const [userData, setUserData] = useState({});
   const [userCars, setUserCars] = useState([]);
+  const [useRes, setuseRes] = useState([]);
 
   const handleUserData = (data) => {
     setUserData(data);
@@ -20,6 +21,7 @@ export default function Userpage(props) {
   useEffect(() => {
     if (userData) {
       fetchUserCars();
+      getReservedCars();
     }
   }, [userData]);
 
@@ -39,6 +41,38 @@ export default function Userpage(props) {
     }
   };
 
+  const getReservedCars = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.get("/userReserved", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "X-User-ID": userId,
+        },
+      });
+      setuseRes(response.data);
+      console.log("response", response.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const reservUser = useRes.map((res, index) => {
+    return (
+      <div key={index} className="rentedcars">
+        <div className="rentedName">
+          {res.year} {res.make} {res.name}
+        </div>
+        <div className="rentedImg">
+          <img src={res.car_photo} alt="car1"></img>
+        </div>
+        <div className="rentedfoote">
+          <div>{res.street}</div>
+          <div className="reserve"> Reserved until {res.booking_end}</div>
+        </div>
+        <div></div>
+      </div>
+    );
+  });
   return (
     <div id="body">
       <FetchData onDataReceived={handleUserData} />
@@ -51,25 +85,7 @@ export default function Userpage(props) {
       )}
 
       <h2>Rented Cars</h2>
-      <div id="rentedCon">
-        <div className="rentedcars">
-          <div className="rentedName"> {userEmail} </div>
-          <div className="rentedImg"> img goes here</div>
-          <div className="rentedfooter"> Reserve </div>
-        </div>
-
-        <div className="rentedcars">
-          <div className="rentedName"> car name</div>
-          <div className="rentedImg"> img goes here</div>
-          <div className="rentedfooter"> Reserve </div>
-        </div>
-
-        <div className="rentedcars">
-          <div className="rentedName"> car name</div>
-          <div className="rentedImg"> img goes here</div>
-          <div className="rentedfooter"> Reserve </div>
-        </div>
-      </div>
+      <div className="TotalCarsmore">{reservUser}</div>
 
       <h2>My cars</h2>
       <div id="CarCon">
@@ -78,8 +94,6 @@ export default function Userpage(props) {
             <div className="ownedcars">
               <div className="rentedName"> {car.name}</div>
               <div className="rentedImg">
-                {" "}
-                {/* <img src={`/pictures//${car.car_photo}`} alt={car.name} /> */}
                 <img src={car.car_photo} alt={car.name} />
               </div>
               <div className="rentedfooter"> {car.street} </div>
