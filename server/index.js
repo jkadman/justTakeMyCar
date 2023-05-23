@@ -226,6 +226,23 @@ app.get("/userCars", async (req, res) => {
     });
 });
 
+app.get("/userReserved", async (req, res) => {
+  const userId = req.headers["x-user-id"];
+  const query =
+    "SELECT car_photo, make, type, name, colour, price_per_day, year, street, TO_CHAR(booking_end, 'yyyy-mm-dd') FROM cars JOIN reservations ON cars.id = reservations.car_id WHERE reservations.user_id = $1;";
+  const values = [userId];
+
+  pool
+    .query(query, values)
+    .then((result) => {
+      const cars = result.rows;
+      res.json(cars);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 app.listen(5001, () => {
   console.log("server is listening on port 5001");
 });
