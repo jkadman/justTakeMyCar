@@ -16,8 +16,9 @@ import Registercar from "./Registercar";
 import Registerform from "./Registerform";
 import Reservepage from "./Reservepage";
 import Userpage from "./Userpage";
-import map from "./googleMap.js";
-import { GoogleMap } from "@react-google-maps/api";
+// import map from "./googleMap.js";
+// import { GoogleMap } from "@react-google-maps/api";
+import NewGoogleMap from "./NewGoogleMap"
 
 function App() {
   return (
@@ -52,7 +53,7 @@ function App() {
           <Route exact path="/about" element={<About />} />
           <Route exact path="/Registercar" element={<Registercar />} />
           <Route exact path="/Reserve" element={<Reservepage />} />
-          <Route exact path="/map" element={<GoogleMap />} />
+          <Route exact path="/map" element={<NewGoogleMap />} />
         </Routes>
       </div>
 

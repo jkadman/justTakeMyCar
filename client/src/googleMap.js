@@ -3,6 +3,10 @@ import { useMemo } from "react";
 import React, { useEffect } from 'react';
 // import loadGoogleMaps from './hooks/googlemapsloader.js';
 import './googleMap.css'
+// import withScriptjs from 'react-google-maps/lib/async/withScriptjs';
+
+
+  // window.google = window.google ? window.google : {} 
 
 const containerStyle = {
   width: '400px',
@@ -13,6 +17,8 @@ const center = {
   lat: -3.745,
   lng: -38.523
 };
+
+// const myMap = withScriptjs(withGoogleMap((props) => (<GoogleMap />)));
 export default function Map() {
   <LoadScript
         googleMapsApiKey="process.env.REACT_APP_GOOGLE_API_KEY"
