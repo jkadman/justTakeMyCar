@@ -47,32 +47,44 @@ body{
 
 
 
+
+
 .registeredCars{
   background-color: #EBEDEF
 }
 
 .header{
-  height: 100px;
-  width: 100%;
-  background-color: #EBEDEF;
+  height: 75px;
+  width: 80%;
+  /* background-color: #9369a4; */
   display: flex;
  justify-content: space-around;
  flex-direction: row;
- border: 1px solid #999;
- border-radius: 10px;
+ /* border: 1px solid #999; */
+ /* border-radius: 10px; */
  margin-right: 10px;
+ padding-top: 10px;
+
+}
+
+#logo{
+  color:#D8D8FF;
+  margin-top: -1px;
+  font-size: 35px;
+  font-weight: bold;
 }
 
 .footer{
   height: 100px;
-  width: 95%;
-  background-color: #EBEDEF;
-
+  width: 80%;
+  margin-left: 160px;
+  /* border: 1px solid #999; */
   display: flex;
   justify-content: space-evenly;
-
+  border-radius: 10px;
   padding: 20px;
   background-color: transparent;
+
 }
 
 .reserve a {
@@ -82,7 +94,7 @@ body{
 
 .availableCars, .registeredCars {
   height: 450px;
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -107,7 +119,7 @@ h1{
 .availableTitle,
 .totalTitle {
   text-align: center;
-  color: #4A235A ;
+  color: #D8D8FF ;
   font-size: 30px;
   width: 350px;
   padding-bottom: 10px;
@@ -126,7 +138,7 @@ h1{
 
 .headerSection{
   margin: 0 10px;
- height: 100px;
+ height: 50px;
  width: 300px;
 }
 
@@ -214,7 +226,7 @@ h1{
   align-self: center;
   text-align: center;
   padding: 10px 20px;
-  background-color: #4d4276;
+  background-color: #4b4bba;
   color: white;
   font-weight: bold;
   border-radius: 5px;

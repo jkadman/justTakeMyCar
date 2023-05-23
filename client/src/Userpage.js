@@ -78,15 +78,14 @@ export default function Userpage(props) {
       <FetchData onDataReceived={handleUserData} />
       {userData ? (
         <div id="user">
-          <h2>User Name</h2>
-          <p>Email: {userEmail}</p>
+          <h2> Car history for User: {userEmail}</h2>
         </div>
       ) : (
         <p>Loading...</p>
       )}
 
       <h2>Rented Cars</h2>
-      <div className="TotalCarsmore">{reservUser}</div>
+      <div className="rent">{reservUser}</div>
 
       <h2>My cars</h2>
       <div id="CarCon">
@@ -97,7 +96,7 @@ export default function Userpage(props) {
               <div className="rentedImg">
                 <img src={car.car_photo} alt={car.name} />
               </div>
-              <div className="rentedfooter"> Reserve </div>
+              <div className="rentedfooter"> {car.street} </div>
             </div>
           </div>
         ))}
