@@ -1,6 +1,5 @@
 import useNavigation from './hooks/navigate';
 import { useState } from 'react';
-import { Navigate } from "react-router-dom";
 import FetchData from './hooks/fetchdata';
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@1,900&display=swap');
@@ -26,7 +25,7 @@ export default function Header() {
 
   // change rendering if userId is present
   const changeLogin = () => {
-    if (userId != null) {
+    if (userId) {
       return (
         <>
         <button className="loginButton" onClick={handleLogout}>Logout</button>

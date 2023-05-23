@@ -34,10 +34,16 @@ useEffect(() => {
 if (isAuth) {
   return <p>Loading...</p>
 }
+const isPageWithoutAuthentication =
+  window.location.pathname === '/register' ||
+  window.location.pathname === '/about' ||
+  window.location.pathname === '/stolen' ||
+  window.location.pathname === '/';
 
-if (!isAuthenticated) {
-  return <Navigate replace to ="/login" />;
+if (!isAuthenticated && !isPageWithoutAuthentication) {
+  return <Navigate replace to="/login" />;
 }
+
 
 return null;
 }
