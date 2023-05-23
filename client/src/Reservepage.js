@@ -145,10 +145,6 @@ export default function Reservepage() {
           <div className="item1">
             <h4>{car.price_per_day}</h4>
           </div>
-          <div className="price">
-            Total Price
-            <h4>{totalPrice}</h4>
-          </div>
 
           <div className="datePicker">
             <DatePicker
@@ -158,7 +154,7 @@ export default function Reservepage() {
               startDate={startDate}
               endDate={endDate}
               placeholderText="Start Date"
-            />
+              />
             <DatePicker
               selected={endDate}
               onChange={(date) => handleDateChange(startDate, date)}
@@ -167,8 +163,10 @@ export default function Reservepage() {
               endDate={endDate}
               minDate={startDate}
               placeholderText="End Date"
-            />
+              />
           </div>
+          <div id="item2" style={{ paddingTop: '20px' }}>{totalPrice}</div>
+
 
           <button
             id="reserve"
