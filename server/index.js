@@ -26,7 +26,8 @@ const storage = multer.diskStorage({
     cb(null, "./public/pictures");
   },
   filename: (req, file, cb) => {
-    cb(null, file.originalname);
+    const filename = file.originalname
+    cb(null, filename);
   },
 });
 
@@ -122,7 +123,7 @@ app.post("/Registercar", upload.single("car_photo"), async (req, res) => {
     const { user_id, make, type, name, colour, price_per_day, year, street } =
       JSON.parse(req.body.data);
 
-    const car_photo = req.file.filename;
+    const car_photo = "/pictures/" + req.file.filename;
     console.log("reqUI", req.body);
     const newUser = await pool.query(
       "INSERT INTO cars (user_id, car_photo, make, type, name, colour, price_per_day, year, street) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING * ",

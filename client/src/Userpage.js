@@ -80,7 +80,8 @@ export default function Userpage(props) {
               <div className="rentedName"> {car.name}</div>
               <div className="rentedImg">
                 {" "}
-                <img src={`/pictures/${car.car_photo}`} alt={car.name} />
+                {/* <img src={`/pictures//${car.car_photo}`} alt={car.name} /> */}
+                <img src={car.car_photo} alt={car.name} />
               </div>
               <div className="rentedfooter"> Reserve </div>
             </div>
