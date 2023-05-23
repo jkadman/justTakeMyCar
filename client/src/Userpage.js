@@ -85,7 +85,7 @@ export default function Userpage(props) {
       )}
 
       <h2>Rented Cars</h2>
-      <div className="TotalCarsmore">{reservUser}</div>
+      <div className="rent">{reservUser}</div>
 
       <h2>My cars</h2>
       <div id="CarCon">
