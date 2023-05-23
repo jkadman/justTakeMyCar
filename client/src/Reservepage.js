@@ -68,7 +68,7 @@ export default function Reservepage() {
         End Date: ${endDate ? endDate.toDateString() : ""}
       `;
 
-      const mailtoUrl = `mailto:${car.email}?subject=${encodeURIComponent(
+      const mailtoUrl = `mailto:${userEmail}?subject=${encodeURIComponent(
         emailSubject
       )}&body=${encodeURIComponent(emailBody)}`;
 
