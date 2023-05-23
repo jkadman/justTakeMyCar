@@ -20,7 +20,7 @@ export default function Footer() {
     <div>
       <footer className="footer">
         <div className="footerSection">
-          <h2>&copy; AAJ</h2>
+          <h2 style={{ color: 'black' }}>&copy; AAJ</h2>
         </div>
         <div className="footerSection">
           <p>Follow us on social media:</p>

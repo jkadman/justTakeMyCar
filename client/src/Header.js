@@ -11,7 +11,7 @@ export default function Header() {
 
   // connects to link navigation hook
   const { navigateTo } = useNavigation();
-  
+
   const handleUserData = (data) => {
     setUserData(data);
   }
@@ -20,7 +20,7 @@ export default function Header() {
     localStorage.removeItem('token');
     window.location.href = '/login';
   }
-  
+
   const userId = userData?.user?.id
   console.log('headerUD', userData?.user?.id)
 
@@ -51,7 +51,7 @@ export default function Header() {
         <button className="registerLink" onClick={() => navigateTo('/Registercar')}>Register My Car</button>
       </span>
       <span className="headerSectiontitle">
-        <h1 onClick={() => navigateTo('/')}>Just Take My Car</h1>
+        <h1 id='logo' onClick={() => navigateTo('/')}>Just Take My Car</h1>
       </span>
       <span className="headerSection buttons">
         {changeLogin()}
