@@ -68,9 +68,11 @@ export default function Reservepage() {
         End Date: ${endDate ? endDate.toDateString() : ""}
       `;
 
-      const mailtoUrl = `mailto:${userEmail}?subject=${encodeURIComponent(
-        emailSubject
-      )}&body=${encodeURIComponent(emailBody)}`;
+      const mailtoUrl = window.open(
+        `mailto:${userEmail}?subject=${encodeURIComponent(
+          emailSubject
+        )}&body=${encodeURIComponent(emailBody)}`
+      );
 
       window.location.href = mailtoUrl;
       setShowPopup(true);
@@ -174,7 +176,13 @@ export default function Reservepage() {
             className="datePicker"
             onClick={handleReserveClick}
           >
-            Reserve
+            <a
+              href="mailto:${userEmail}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Reserve
+            </a>
           </button>
         </div>
 

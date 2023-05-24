@@ -31,27 +31,25 @@ export default function TotalAvailable() {
 
   const availableCars = available.map((available, index) => {
     return (
-      index < 18 && (
-        <div key={index} className="carItem">
-          <div className="carName">
-            {available.year} {available.make} {available.name}
-          </div>
-          <div className="carImage">
-            <img src={available.car_photo} alt="car1"></img>
-          </div>
-          <div className="carArea">
-            <div>{available.street}</div>
-            <div className="reserve">
-              <a
-                className="Reserve"
-                onClick={() => handleReserveClick(available)}
-              >
-                Reserve
-              </a>
-            </div>
+      <div key={index} className="carItem">
+        <div className="carName">
+          {available.year} {available.make} {available.name}
+        </div>
+        <div className="carImage">
+          <img src={available.car_photo} alt="car1"></img>
+        </div>
+        <div className="carArea">
+          <div>{available.street}</div>
+          <div className="reserve">
+            <a
+              className="Reserve"
+              onClick={() => handleReserveClick(available)}
+            >
+              Reserve
+            </a>
           </div>
         </div>
-      )
+      </div>
     );
   });
 

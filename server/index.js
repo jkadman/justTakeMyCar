@@ -189,7 +189,7 @@ app.get("/", async (req, res) => {
 app.get("/CarsAvailableseemore", async (req, res) => {
   try {
     const available =
-      "SELECT car_photo, make, type, name, colour, price_per_day, year, street FROM cars WHERE cars.id NOT IN (SELECT reservations.car_id FROM reservations)";
+      "SELECT cars.id, car_photo, make, type, name, colour, price_per_day, year, street FROM cars WHERE cars.id NOT IN (SELECT reservations.car_id FROM reservations)";
     const carsAvailablePage = await pool.query(available);
     res.json(carsAvailablePage.rows);
   } catch (error) {
@@ -229,7 +229,7 @@ app.get("/userCars", async (req, res) => {
 app.get("/userReserved", async (req, res) => {
   const userId = req.headers["x-user-id"];
   const query =
-    "SELECT car_photo, make, type, name, colour, price_per_day, year, street, TO_CHAR(booking_end, 'yyyy-mm-dd') FROM cars JOIN reservations ON cars.id = reservations.car_id WHERE reservations.user_id = $1;";
+    "SELECT car_photo, make, type, name, colour, price_per_day, year, street, TO_CHAR(booking_end, 'yyyy-mm-dd') as booking_end FROM cars JOIN reservations ON cars.id = reservations.car_id WHERE reservations.user_id = $1;";
   const values = [userId];
 
   pool
