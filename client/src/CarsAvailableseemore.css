@@ -1,11 +1,9 @@
-.availableSeemore{
-
-  display:flex ;
-flex-direction: row;
+.availableSeemore {
+  display: flex;
+  flex-direction: row;
 }
 
-
-.availableCarsmore{
+.availableCarsmore {
   height: 1000px;
   width: 80%;
   margin: 0 auto; /* this will center the divs horizontally */
@@ -17,10 +15,10 @@ flex-direction: row;
   gap: 10px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  background-color: #EBF5FB
+  background-color: #ebf5fb;
 }
 
-.Selectors{
+.Selectors {
   width: 50 px;
   height: 80px;
   background-color: black;
@@ -30,11 +28,11 @@ flex-direction: row;
   flex-direction: column;
 }
 
-.TotalCarsmore{
-  background-color: #EBEDEF
+.TotalCarsmore {
+  background-color: #ebedef;
 }
 
-.availableTitleSeemore{
+.availableTitleSeemore {
   text-align: center;
   color: #4d4276;
   font-size: 30px;
@@ -54,4 +52,3 @@ flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-

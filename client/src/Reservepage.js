@@ -154,7 +154,7 @@ export default function Reservepage() {
               startDate={startDate}
               endDate={endDate}
               placeholderText="Start Date"
-              />
+            />
             <DatePicker
               selected={endDate}
               onChange={(date) => handleDateChange(startDate, date)}
@@ -163,10 +163,11 @@ export default function Reservepage() {
               endDate={endDate}
               minDate={startDate}
               placeholderText="End Date"
-              />
+            />
           </div>
-          <div id="item2" style={{ paddingTop: '20px' }}>{totalPrice}</div>
-
+          <div id="item2" style={{ paddingTop: "20px" }}>
+            {totalPrice}
+          </div>
 
           <button
             id="reserve"

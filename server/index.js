@@ -26,7 +26,7 @@ const storage = multer.diskStorage({
     cb(null, "./public/pictures");
   },
   filename: (req, file, cb) => {
-    const filename = file.originalname
+    const filename = file.originalname;
     cb(null, filename);
   },
 });
@@ -235,8 +235,8 @@ app.get("/userReserved", async (req, res) => {
   pool
     .query(query, values)
     .then((result) => {
-      const cars = result.rows;
-      res.json(cars);
+      const rescars = result.rows;
+      res.json(rescars);
     })
     .catch((err) => {
       console.log(err);
