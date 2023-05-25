@@ -1,6 +1,6 @@
 INSERT INTO cars (user_id, car_photo, make, type, name, colour, price_per_day, year, street)
 VALUES
-  (18, '/pictures/car1.png', 'BMW', 'sedan', 'Madame Rouge', 'red', 340.50, 2016, 'Cambie St.'),
+  (15, '/pictures/car1.png', 'BMW', 'sedan', 'Madame Rouge', 'red', 340.50, 2016, 'Cambie St.'),
   (16, '/pictures/car2.png', 'Audi', 'sedan', 'Blackfly', 'black', 218.10, 2022, 'Lougheed Ave.'),
   (17, '/pictures/car3.png', 'Ducati', 'motorcycle', 'Frogger', 'red', 68.10, 2020, 'Ontario St.'),
   (4, '/pictures/car4.png', 'Audi', 'hatchback', 'Mr. Nobody', 'white', 138.50, 2018, '12th St.'),

@@ -6,6 +6,8 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import FetchData from "./hooks/fetchdata";
 
+
+
 export default function Reservepage() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -19,6 +21,7 @@ export default function Reservepage() {
   };
 
   const navigate = useNavigate();
+
 
   const userId = userData?.user?.id;
   const userEmail = userData?.user?.email;
@@ -74,7 +77,7 @@ export default function Reservepage() {
         )}&body=${encodeURIComponent(emailBody)}`
       );
 
-      window.location.href = mailtoUrl;
+      // window.location.href = mailtoUrl;
       setShowPopup(true);
       event.preventDefault(); // Prevent form submission (for demo purposes)
       try {
@@ -101,7 +104,6 @@ export default function Reservepage() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(body),
         });
-        console.log(response);
         navigate("/Userpage");
       } catch (err) {
         console.error(err.message);

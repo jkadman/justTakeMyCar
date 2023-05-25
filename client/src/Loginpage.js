@@ -19,7 +19,7 @@ export default function Login() {
 
     localStorage.setItem('token', token)
 
-    window.location.href = '/Userpage';
+    window.location.href = '/';
   
     } catch (error) {
       console.error(error);
